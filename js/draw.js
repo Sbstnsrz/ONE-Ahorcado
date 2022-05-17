@@ -61,5 +61,4 @@ function dibujar(contador){
         default:
             return;
     }
-    console.log(contador);
 }

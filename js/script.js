@@ -7,6 +7,11 @@ window.addEventListener('keydown', function(event){
     if(event.key && contador<9 && letras.textContent.indexOf(key)==-1){
         letras.textContent+=key;
         contador++;
+        //funcion en draw.js
         dibujar(contador);
+        console.log(contador);
+    }
+    if(contador==9){
+        letras.textContent="Lo siento, perdiste.";
     }
 });
