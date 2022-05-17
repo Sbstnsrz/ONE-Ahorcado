@@ -13,7 +13,7 @@ draw.fillRect(0,355,294,360);
 
 var contador=0;
 window.addEventListener('keydown', function(event) {
-    if(event.key=="ArrowUp") {
+    if(event.key) {
         contador++;
     }
     switch(contador){
