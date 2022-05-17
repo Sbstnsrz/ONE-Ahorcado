@@ -12,24 +12,39 @@
 }
 section{
     width: 100%;
+    min-width: 375px;
     text-align:center;
 }
 #draw{
     display: inline;
-    border:1px solid #000000;
 }
 #keyboard{
-    width: 100%;
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     display: inline;
     width: 464px;
     height: 152px;
-    background-color: grey;
+    background-color: lightgray;
+}
+.palabra{
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: underline;
+    min-width: 375px;
+    color: #0A3871;
+}
+tr{
+    text-align: center;
+}
+td{
+    text-align: center;
+    margin: 20px;
+    width: 10%;
 }
 .nuevoJuego{
     padding: 24px;
-    width: 300px;
+    width: 80%;
+    max-width: 338px;
     background: #0A3871;
     border-radius: 24px;
     margin: 10px;
@@ -40,7 +55,8 @@ section{
 }
 .desistir{
     padding: 24px;
-    width: 300px;
+    width: 80%;
+    max-width: 338px;
     background: #D8DFE8;
     border: 1px solid #0A3871;
     border-radius: 24px;
@@ -65,12 +81,4 @@ section{
 .copyright:hover{
     font-weight: bold;
     color: black;
-}
-
-@media screen and (min-width:375px){
-
-}
-
-@media screen and (min-width:768px){
-
 }
