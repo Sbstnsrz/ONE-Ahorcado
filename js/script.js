@@ -1,8 +1,12 @@
 var letras = document.querySelector(".letrasErradas");
 letras.textContent="";
 
+var contador=0;
 window.addEventListener('keydown', function(event){
-    if(event.key && contador<9){
-        letras.textContent+=event.key.toLocaleUpperCase();
+    var key = event.key.toUpperCase();
+    if(event.key && contador<9 && letras.textContent.indexOf(key)==-1){
+        letras.textContent+=key;
+        contador++;
+        dibujar(contador);
     }
 });

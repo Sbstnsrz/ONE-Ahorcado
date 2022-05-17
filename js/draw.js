@@ -10,21 +10,18 @@ draw.strokeStyle="#0A3871";
 //base
 draw.fillRect(0,355,294,360);
 
-
-var contador=0;
-window.addEventListener('keydown', function(event) {
-    if(event.key) {
-        contador++;
-    }
+function dibujar(contador){
     switch(contador){
         case 1:{
-            //mastil1
+            //mastil 1
             draw.fillRect(80,0,5,360);
             break;}
         case 2:{
+            //mastil 2
             draw.fillRect(85,0,174,5);
             break;}
         case 3:{
+            //mastil 3
             draw.fillRect(254,5,5,50);
             break;}
         case 4:{
@@ -65,4 +62,4 @@ window.addEventListener('keydown', function(event) {
             return;
     }
     console.log(contador);
-});
+}
