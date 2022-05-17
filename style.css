@@ -1,0 +1,154 @@
+*{
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+:root{
+    background: #E5E5E5;
+}
+.logo{
+    display: none;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.frente{
+    width: 400px;
+    vertical-align: top;
+}
+.input{
+    resize: none;
+    height: 450px;
+    width: 90%;
+    margin: 30px;
+    padding: 10px;
+    font-size: 32px;
+    background-color: #E5E5E5;
+    border-style: none;
+    color: #0A3871;
+}
+.memo{
+    font-size: 14px;
+    color: #495057;
+    opacity: 0.8;
+    margin-left: 30px;
+}
+.memo:hover{
+    font-weight: bold;
+}
+.botones{
+    text-align: center;
+}
+.encriptar{
+    padding: 24px;
+    width: 300px;
+    background: #0A3871;
+    border-radius: 24px;
+    margin: 10px;
+    margin-left: 30px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.desencriptar{
+    padding: 24px;
+    width: 300px;
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    margin: 10px;
+    margin-left: 30px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #0A3871;
+}
+.resultado{
+    position: relative;
+    width: 400px;
+    margin: 10px;
+}
+.output{
+    width: 350px;
+    height: 200px;
+    padding: 25px;
+    background: #FFFFFF;
+    resize: none;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+    border-style: none;
+    font-size: 24px;
+}
+
+.imagen{
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    padding: 25px;
+}
+.imagen img{
+    display: none;
+}
+.p1{
+    margin-top: 1em;
+    font-weight: 700;
+    font-size: 24px;
+    color: #342A40;;
+
+}
+.p2{
+    margin-top: 1em;
+    font-size: 16px;
+    color: #495057;
+}
+.copiar{
+    display: none;
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    left: 50px;
+    padding: 24px;
+    width: 300px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    font-size: 16px;
+    color: #0A3871;
+}
+
+.copyright{
+    font-family: 'Monaco';
+    text-decoration: none;
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: grey;
+    font-size: 10px;
+
+}
+.copyright:hover{
+    font-weight: bold;
+    color: black;
+}
+
+@media screen and (min-width:480px){
+    .logo{
+        display: block;
+    }
+    .output{
+        height: 600px;
+    }
+    .imagen img{
+        display: block;
+    }
+}
+
+@media screen and (min-width:700px){
+    .frente{
+        width: 700px;
+    }
+    .frente, .resultado{
+        display: inline-block;
+    }
+    
+}
