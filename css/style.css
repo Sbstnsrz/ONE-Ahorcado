@@ -1,0 +1,78 @@
+*{
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+:root{
+    background: #E5E5E5;
+}
+.logo{
+    margin-left: 40px;
+    margin-top: 40px;
+}
+section{
+    width: 100%;
+    text-align:center;
+}
+#draw{
+    display: inline;
+    width: 294px; 
+    height: 360px;
+    border:1px solid #000000;
+}
+#keyboard{
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    display: inline;
+    width: 464px;
+    height: 152px;
+    background-color: grey;
+}
+.nuevoJuego{
+    padding: 24px;
+    width: 300px;
+    background: #0A3871;
+    border-radius: 24px;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.desistir{
+    padding: 24px;
+    width: 300px;
+    background: #D8DFE8;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    margin: 10px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #0A3871;
+}
+
+.copyright{
+    font-family: 'Monaco';
+    text-decoration: none;
+    display: inline-block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: grey;
+    font-size: 10px;
+
+}
+.copyright:hover{
+    font-weight: bold;
+    color: black;
+}
+
+@media screen and (min-width:375px){
+
+}
+
+@media screen and (min-width:768px){
+
+}

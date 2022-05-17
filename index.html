@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
 		<title>Encriptador de mensajes Alura</title>
-		<link rel="stylesheet" href="reset.css">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -15,7 +15,20 @@
 			<img src="img/Logo.svg" title="Encriptador Alura">
 		</header>
 		<main>
-			<script src="script.js"></script>	
+            <section id="canvas-container">
+                <canvas id="draw">Su navegador no soporta canvas</canvas>
+            </section>
+            <section id="keyboard">
+                <p>Palabra</p>
+                <p>-------</p>
+                <p>asdafgr</p>
+            </section>
+            <section id="botones">
+                <button class="nuevoJuego">Nuevo Juego</button>
+                <button class="desistir">Desistir</button>
+            </section>
+            
+			<script src="js/draw.js"></script>
 		</main>
         <footer>
             <p>
