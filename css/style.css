@@ -16,8 +16,6 @@ section{
 }
 #draw{
     display: inline;
-    width: 294px; 
-    height: 360px;
     border:1px solid #000000;
 }
 #keyboard{
