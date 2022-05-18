@@ -19,14 +19,13 @@ section{
 #draw{
     display: inline;
 }
-#keyboard{
-    display: block;
-    font-size: 2em;
-    height: 152px;
-}
 table{
     display: inline;
     align-items: center;
+}
+#contenedor-palabra{
+    font-size: 2em;
+    height: 152px;
 }
 .palabra{
     color: #0A3871;
@@ -34,11 +33,16 @@ table{
     width: 80px;
     height: 72px;
     margin: 5px;
-    border: 1px solid;
 }
 #palabra{
     display: inline;
-    border: 1px solid;
+}
+hr{
+    width: 80%;
+    height: 6px;
+    background-color: #0A3871;
+    border: none;
+    border-radius: 3px;
 }
 .letrasErradas{
     padding: 25px;
@@ -46,6 +50,11 @@ table{
     font-weight: 400;
     letter-spacing: 1em;
     color: #495057;
+}
+.mensajePerdiste{
+    color: lightcoral;
+    font-weight: bold;
+    letter-spacing: normal;
 }
 .nuevoJuego{
     padding: 24px;
