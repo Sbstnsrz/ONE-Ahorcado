@@ -1,6 +1,6 @@
 var letras = document.querySelector(".letrasErradas");
-
 var contador=0;
+
 window.addEventListener('keydown', function(event){
     var key = event.key.toUpperCase();
     if(event.key && contador<9 && letras.textContent.indexOf(key)==-1){
@@ -46,3 +46,8 @@ for(i=0; i<palabra.length;i++){
     contenedor.appendChild(caracter);
     guion.appendChild(contruirGuion());
 }
+
+document.getElementById("btn1").addEventListener("click", function( event ) {
+    console.log("Click en btn1");
+    Boton1click();
+});
