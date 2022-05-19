@@ -48,14 +48,17 @@ window.addEventListener('keydown', function(event){
     verificarLetra(event.key.toUpperCase());    
 });
 
-palabraSecreta("ALURA");
+var palabra = "ALURA";
+palabraSecreta(palabra);
 
 function verificarLetra(letra){
     if(contador<9 && letrasErradas.textContent.indexOf(letra)==-1){
         letrasErradas.textContent+=letra;
-        contador++;
-        //funcion en draw.js
-        dibujar(contador);
+        if(!mostrarLetrasCorrectas(letra, palabra)){
+            contador++;
+            //funcion en draw.js
+            dibujar(contador);
+        }
         console.log(contador);
     }
     if(contador==9){

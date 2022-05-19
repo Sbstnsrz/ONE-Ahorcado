@@ -22,3 +22,20 @@ function palabraSecreta(palabra){
         guion.appendChild(contruirGuion());
     }
 }
+function mostrarLetrasCorrectas(letra, palabra){
+    var letras = document.querySelectorAll(".palabra");
+    var encontrada = false;
+    for(i=0;i<palabra.length;i++){
+        if(palabra[i]==letra){
+            letras[i].textContent=letra;
+            console.log(letra);
+            encontrada = true;
+        }
+    }
+    if(encontrada){
+        return true;
+    }else{
+        return false;
+    }
+    //letras.forEach(element => console.log(element.textContent));
+}
