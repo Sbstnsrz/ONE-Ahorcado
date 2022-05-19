@@ -18,7 +18,6 @@ function iniciarJuego(){
 
 //Captura id de elemento clickeado
 window.addEventListener("click",function(event){
-    console.log(event.target.id);
     if(event.target.id=="iniciarJuego"){
         btnIniciarJuego();
     }

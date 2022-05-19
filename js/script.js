@@ -56,7 +56,6 @@ function verificarLetra(letra){
             dibujar(contador);
         }
         else{
-            console.log(palabraSec);
             if(verificarPalabra(palabraSec)){
                 panelLetras.textContent = "Ganaste, felicidades!";
                 panelLetras.classList.add("mensajeGanaste");
@@ -67,6 +66,7 @@ function verificarLetra(letra){
     if(contador==9){
         panelLetras.classList.add("mensajePerdiste");
         panelLetras.textContent="Fin del juego!";
+        mostrarLetrasFaltantes(palabraSec);
         jugando = false;
     }
 }

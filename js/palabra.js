@@ -49,3 +49,13 @@ function verificarPalabra(valor){
         return false;
     }
 }
+function mostrarLetrasFaltantes(palsec){
+    var str = document.querySelectorAll(".palabra");
+    for(i=0;i<palsec.length;i++){
+        if(!(str[i].innerHTML.includes(palsec[i]))){
+            console.log(str[i].innerHTML);
+            str[i].style.color = "red";
+            str[i].innerHTML=palsec[i];
+        }
+    }
+}
