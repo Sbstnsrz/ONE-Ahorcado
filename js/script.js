@@ -1,18 +1,27 @@
-var letrasErradas = document.querySelector(".letrasErradas");
+var panelLetras = document.querySelector(".letrasErradas");
 var contador = 0;
 var jugando = false;
+var palabraSec;
 
-var palabraSec = "ALURA";
+
 
 inicio();
 
+function elegirPalabra(){
+    var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
+    var elegida = Math.round(Math.random()*palabras.length);
+    return palabras[elegida];
+}
+
+
 function reiniciarLetrasErradas(){
-    letrasErradas.textContent = "";
-    letrasErradas.classList.remove("mensajePerdiste");
+    panelLetras.textContent = "";
+    panelLetras.className = "letrasErradas";
 }
 
 
 function btnIniciarJuego(){
+    palabraSec = elegirPalabra();
     jugando = true;
     palabraSecreta(palabraSec);
     iniciarJuego();
@@ -29,6 +38,7 @@ function btnDesistir(){
 function btnagregarNuevaPalabra(){
 }
 function btnNuevoJuego(){
+    palabraSec = elegirPalabra();
     jugando = true;
     reiniciarLetrasErradas();
     reiniciarPalabraSecreta();
@@ -39,8 +49,8 @@ function btnNuevoJuego(){
 }
 
 function verificarLetra(letra){
-    if(contador<9 && letrasErradas.textContent.indexOf(letra)==-1){
-        letrasErradas.textContent+=letra;
+    if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
+        panelLetras.textContent+=letra;
         if(!mostrarLetrasCorrectas(letra, palabraSec)){
             contador++;
             dibujar(contador);
@@ -48,14 +58,16 @@ function verificarLetra(letra){
         else{
             console.log(palabraSec);
             if(verificarPalabra(palabraSec)){
-                letrasErradas.textContent="Has ganado!";
+                panelLetras.textContent = "Ganaste, felicidades!";
+                panelLetras.classList.add("mensajeGanaste");
                 jugando = false;
             }
         }
     }
     if(contador==9){
-        letrasErradas.classList.add("mensajePerdiste");
-        letrasErradas.textContent="Fin del juego!";
+        panelLetras.classList.add("mensajePerdiste");
+        panelLetras.textContent="Fin del juego!";
+        jugando = false;
     }
 }
 //Captura tecla presionada
