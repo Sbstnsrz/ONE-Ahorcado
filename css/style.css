@@ -55,7 +55,7 @@ hr{
     color: #495057;
 }
 .mensajePerdiste{
-    color: lightcoral;
+    color: red;
     font-weight: bold;
     letter-spacing: normal;
 }

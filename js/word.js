@@ -1,7 +1,6 @@
 
 var contenedor = document.querySelector("#contenedor-Palabra");
 var guion = document.querySelector("#guion");
-var palabra="ALURA";
 
 function construirTd(dato, clase){
     var td = document.createElement("td");
@@ -15,10 +14,11 @@ function contruirGuion(){
     td.appendChild(linea);
     return td;
 }
-
-//generar campos de letras
-for(i=0; i<palabra.length;i++){
-    var caracter = construirTd("","palabra");
-    contenedor.appendChild(caracter);
-    guion.appendChild(contruirGuion());
+function palabraSecreta(palabra){
+    //generar campos de letras
+    for(i=0; i<palabra.length;i++){
+        var caracter = construirTd("","palabra");
+        contenedor.appendChild(caracter);
+        guion.appendChild(contruirGuion());
+    }
 }

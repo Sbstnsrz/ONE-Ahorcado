@@ -13,5 +13,5 @@ function jugando(){
     dibujo.style.display = "inline";
     keyboard.style.display = "inline-block";
     botonesInicio.style.display = "none";
-    botonesJugando.style.display = "inline-block";    
+    botonesJugando.style.display = "inline";    
 }
