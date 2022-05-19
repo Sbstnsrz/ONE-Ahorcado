@@ -1,15 +1,19 @@
 var pantalla = document.getElementById("draw");
 var draw = pantalla.getContext("2d");
-draw.beginPath();
 
-draw.fillStyle= "#0A3871";
-draw.lineCap= "round";
-draw.lineWidth=5;
-draw.strokeStyle="#0A3871";
+function iniciarDibujo(){
+        const context = pantalla.getContext('2d');
+        context.clearRect(0, 0, pantalla.width, pantalla.height);
 
-//base
-draw.fillRect(0,355,294,360);
-
+        draw.beginPath();
+        draw.fillStyle= "#0A3871";
+        draw.lineCap= "round";
+        draw.lineWidth=5;
+        draw.strokeStyle="#0A3871";
+        
+        //base
+        draw.fillRect(0,355,294,360);
+}
 function dibujar(cont){
     switch(cont){
         case 1:{//mastil 1

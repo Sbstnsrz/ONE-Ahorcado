@@ -1,11 +1,7 @@
-var contador=0;
+
 var contenedor = document.querySelector("#contenedor-Palabra");
 var guion = document.querySelector("#guion");
 var palabra="ALURA";
-
-function verificarPalabra(tecla){
-    var letras = document.querySelectorAll("#contenedor-palabra");
-}
 
 function construirTd(dato, clase){
     var td = document.createElement("td");
