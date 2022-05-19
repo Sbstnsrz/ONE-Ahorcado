@@ -9,9 +9,26 @@ function inicio(){
     botonesInicio.style.display = "block";
     botonesJugando.style.display = "none";
 }
-function jugando(){
+function iniciarJuego(){
     dibujo.style.display = "inline";
     keyboard.style.display = "inline-block";
     botonesInicio.style.display = "none";
-    botonesJugando.style.display = "inline";    
+    botonesJugando.style.display = "inline";   
 }
+
+//Captura id de elemento clickeado
+window.addEventListener("click",function(event){
+    console.log(event.target.id);
+    if(event.target.id=="iniciarJuego"){
+        btnIniciarJuego();
+    }
+    if(event.target.id=="agregarNuevaPalabra"){
+        btnagregarNuevaPalabra();
+    }
+    if(event.target.id=="nuevoJuego"){
+        btnNuevoJuego();
+    }
+    if(event.target.id=="desistir"){
+        btnDesistir();
+    }
+});

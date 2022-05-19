@@ -20,6 +20,7 @@
     color: #0A3871;
 }
 #botonesInicio{
+    display: none;
     margin-top: 200px;
 }
 .botonesJugando{

@@ -2,8 +2,7 @@ var pantalla = document.getElementById("draw");
 var draw = pantalla.getContext("2d");
 
 function iniciarDibujo(){
-        const context = pantalla.getContext('2d');
-        context.clearRect(0, 0, pantalla.width, pantalla.height);
+        draw.clearRect(0, 0, pantalla.width, pantalla.height);
 
         draw.beginPath();
         draw.fillStyle= "#0A3871";
@@ -14,6 +13,7 @@ function iniciarDibujo(){
         //base
         draw.fillRect(0,355,294,360);
 }
+
 function dibujar(cont){
     switch(cont){
         case 1:{//mastil 1
