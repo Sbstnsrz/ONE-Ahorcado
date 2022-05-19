@@ -7,8 +7,7 @@ function inicio(){
     boton1.textContent = "Iniciar Juego";
     boton2.className = "agregarNuevaPalabra";
     boton2.textContent = "Agregar nueva palabra";
-    botones[0].style.display = "block";
-    botones[1].style.display = "block";
+    botones.forEach(function(btn){btn.style.display = "block";});
     document.querySelector("#draw").style.display = "none";
     document.querySelector("#keyboard").style.display = "none";
     document.querySelector("#btns-section").setAttribute("margin-top", "200px");
@@ -18,11 +17,10 @@ function jugando(){
     boton1.textContent = "Nuevo juego";
     boton2.className = "desistir";
     boton2.textContent = "Desistir";
-    botones[0].style.display = "inline";
-    botones[1].style.display = "inline";
+    botones.forEach(function(btn){btn.style.display = "inline";});
     document.querySelector("#draw").style.display = "inline";
     document.querySelector("#keyboard").style.display = "inline-block";
-    document.querySelector("#btns-section").setAttribute("margin-top", "auto");
+    document.querySelector("#btns-section").setAttribute("margin-top", "10px");
 }
 
 function boton1click(){
