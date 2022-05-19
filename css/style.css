@@ -59,55 +59,7 @@ hr{
     font-weight: bold;
     letter-spacing: normal;
 }
-.btn1{
-    background: #0A3871;
-    border-radius: 24px;
-    margin: 10px;
-    padding: 24px;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: #FFFFFF;
-}
-.btn2{
-    background: #D8DFE8;
-    border: 1px solid #0A3871;
-    border-radius: 24px;
-    margin: 10px;
-    padding: 24px;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: #0A3871;
-}
-#botonesInicio{
-    margin-top: 200px;
-}
-.botonesJugando{
-    display: none;
-}
-.btns{
-    width: 100%;
-}
-div{
-    display: block;
-}
-#iniciarJuego{
-    width: 317px;
-    height: 114px;
-}
-#agregarNuevaPalabra{
-    width: 280px;
-    height: 67px;
-}
-#nuevoJuego{
-    width: 80%;
-    max-width: 332px;  
-}
-#desistir{
-    width: 80%;
-    max-width: 332px;  
-}
+
 
 .copyright{
     font-family: 'Monaco';
