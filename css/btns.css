@@ -1,25 +1,25 @@
-.btn1{
+:is(.btn1, .btn2, .teclas):hover{
+    box-shadow: 0 0 10px black;
+}
+.btn-base{
     cursor: pointer;
-    background: #0A3871;
-    border-radius: 24px;
+    height: 67px;
     margin: 10px;
     padding: 24px;
+    border-radius: 24px;
     font-size: 16px;
     line-height: 19px;
     text-align: center;
+
+}
+.btn1{
+    background: var(--color1);
     color: #FFFFFF;
 }
 .btn2{
-    cursor: pointer;
-    background: #D8DFE8;
-    border: 1px solid #0A3871;
-    border-radius: 24px;
-    margin: 10px;
-    padding: 24px;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    color: #0A3871;
+    background: var(--color2);
+    border: 1px solid var(--color1);
+    color: var(--color1);
 }
 #botonesInicio{
     display: none;
@@ -29,6 +29,7 @@
     display: none;
 }
 .btns{
+    vertical-align: middle;
     width: 100%;
 }
 #iniciarJuego{
@@ -37,13 +38,8 @@
 }
 #agregarNuevaPalabra{
     width: 280px;
-    height: 67px;
 }
-#nuevoJuego{
-    width: 80%;
-    max-width: 332px;  
-}
-#desistir{
+#nuevoJuego, #desistir {
     width: 80%;
     max-width: 332px;  
 }
@@ -60,16 +56,14 @@
 }
 .teclas{
     cursor: pointer;
-    border: 1px solid #0A3871;
-    background: #D8DFE8;
-    display: inline;
-    
-    color: #0A3871;
+    border: 1px solid var(--color1);
+    background: var(--color2);
+    display: inline; 
+    color: var(--color1);
     border-radius: 10px;
     padding: 8px 10px;
     margin: 1px;
     font-size: 25px;
-    font-weight: 400;
 }
 #a, #b, #c{
     text-align: center;

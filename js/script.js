@@ -1,4 +1,4 @@
-var panelLetras = document.querySelector(".letrasErradas");
+var panelLetras = document.querySelector(".panelLetras");
 var contador = 0;
 var jugando = false;
 var palabraSec;
@@ -16,7 +16,7 @@ function elegirPalabra(){
 
 function reiniciarLetrasErradas(){
     panelLetras.textContent = "";
-    panelLetras.className = "letrasErradas";
+    panelLetras.className = "panelLetras erradas";
 }
 
 
@@ -55,13 +55,13 @@ function verificarLetra(letra){
             else{
                 if(verificarPalabra(palabraSec)){
                     panelLetras.textContent = "Ganaste, felicidades!";
-                    panelLetras.classList.add("mensajeGanaste");
+                    panelLetras.className = "panelLetras mensaje ganaste";
                     jugando = false;
                 }
             }
         }
         if(contador==9){
-            panelLetras.classList.add("mensajePerdiste");
+            panelLetras.className = "panelLetras mensaje perdiste";
             panelLetras.textContent="Fin del juego!";
             mostrarLetrasFaltantes(palabraSec);
             jugando = false;

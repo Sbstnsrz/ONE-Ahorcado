@@ -1,10 +1,14 @@
 *{
+    max-width: 800px;
+    max-height: 1200px;
     font-family: 'Inter';
     font-style: normal;
 }
 
 :root{
     background: #F3F5FC;
+    --color1: #0A3871;
+    --color2: #D8DFE8;
 }
 .logo{
     margin-left: 40px;
@@ -16,10 +20,7 @@ section{
     min-width: 375px;
     text-align:center;
 }
-#draw{
-    display: none;
-}
-#keyboard{
+#draw, #keyboard{
     display: none;
 }
 table{
@@ -30,8 +31,8 @@ table{
     font-size: 2em;
     height: 152px;
 }
-.palabra{
-    color: #0A3871;
+.palabra{    
+    color: var(--color1);
     font-size: 48px;
     width: 80px;
     height: 50px;
@@ -43,27 +44,29 @@ table{
 hr{
     width: 70%;
     height: 6px;
-    background-color: #0A3871;
+    background-color: var(--color1);
     border: none;
     border-radius: 3px;
 }
-.letrasErradas{
+.panelLetras{
     height: 30px;
     padding: 25px;
     font-size: 24px;
     font-weight: 400;
+}
+.erradas{
     letter-spacing: 1em;
     color: #495057;
 }
-.mensajePerdiste{
-    color: red;
+.mensaje{
     font-weight: bold;
     letter-spacing: normal;
 }
-.mensajeGanaste{
+.perdiste{
+    color: red;  
+}
+.ganaste{
     color: green;
-    font-weight: bold;
-    letter-spacing: normal;
 }
 
 .copyright{
