@@ -66,6 +66,10 @@ hr{
     letter-spacing: normal;
 }
 
+#controlTeclado{
+    font-size: 30px;
+}
+
 #teclado{
     display: none;
     height: 150px;

@@ -14,15 +14,16 @@ function iniciarJuego(){
     dibujo.style.display = "inline";
     keyboard.style.display = "inline-block";
     botonesInicio.style.display = "none";
-    botonesJugando.style.display = "inline";
-    teclado.style.display = "block";
-       
+    botonesJugando.style.display = "inline";       
 }
 
 //Captura id de elemento clickeado
 window.addEventListener("click",function(event){
     if(event.target.className=="teclas"){
         verificarLetra(event.target.innerHTML);
+    }
+    if(event.target.id=="controlTeclado"){
+        mostrarTeclado();
     }
     console.log(event.target.innerHTML);
     if(event.target.id=="iniciarJuego"){

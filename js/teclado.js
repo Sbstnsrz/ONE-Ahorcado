@@ -25,4 +25,13 @@ function crearTeclado(){
     }
     
 }
+function mostrarTeclado(){
+    var estado = document.querySelector("#teclado");
+    console.log("teclado");
+    if(estado.style.display=="none"){
+        estado.style.display="inline-block";
+    }else{
+        estado.style.display="none";
+    }
+}
 crearTeclado();
