@@ -1,18 +1,17 @@
 var panelLetras = document.querySelector(".panelLetras");
 var teclado = document.querySelector("#teclado");
-var tecladoTeclas = document.querySelectorAll(".teclas");
 var contador = 0;
 var jugando = false;
 var palabraSec;
 
-
-
-
-function elegirPalabra(){
+function elegirPalabra(palabraPrevia){
     var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
-    var elegida = Math.round(Math.random()*(palabras.length-1));
-    console.log(elegida);
-    return palabras[elegida];
+
+    do{
+    var palabraElegida = palabras[Math.floor(Math.random()*(palabras.length))];
+    }while(palabraPrevia==palabraElegida);
+
+    return palabraElegida;
 }
 
 
@@ -23,7 +22,7 @@ function reiniciarLetrasErradas(){
 
 
 function btnIniciarJuego(){
-    palabraSec = elegirPalabra();
+    palabraSec = elegirPalabra(palabraSec);
     palabraSecreta(palabraSec);
     iniciarJuego();
     iniciarDibujo();
@@ -84,6 +83,7 @@ window.addEventListener('keydown', function(event){
 inicio();
 
 crearTeclado(teclado);
+var tecladoTeclas = document.querySelectorAll(".teclas");
 
 
     

@@ -25,7 +25,6 @@ function palabraSecreta(palabra){
 function mostrarLetrasCorrectas(letra, palSec){
     var letras = document.querySelectorAll(".palabra");
     var encontrada = false;
-    console.log(palSec);
     for(i=0;i<palSec.length;i++){
         if(palSec[i]==letra){
             letras[i].textContent=letra;

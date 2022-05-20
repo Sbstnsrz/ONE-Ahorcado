@@ -1,6 +1,3 @@
-
-
-
 function crearTeclado(sectionTeclado){
     var tabla = document.createElement("table");
     sectionTeclado.appendChild(tabla);
@@ -38,7 +35,6 @@ function teclaPresionada(ubicacion){
     
 function mostrarTeclado(){
     var estado = document.querySelector("#teclado");
-    console.log("teclado");
     if(estado.style.display=="inline-block"){
         estado.style.display="none";
     }else{
