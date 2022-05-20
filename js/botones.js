@@ -24,23 +24,24 @@ function iniciarJuego(){
 
 //Captura id de elemento clickeado
 window.addEventListener("click",function(event){
-    if(event.target.className=="teclas"){
+    var tecla = event.target;
+    if(tecla.className=="teclas"){
         verificarLetra(event.target.innerHTML);
+        event.target.classList.add("presionada");
     }
-    if(event.target.id=="controlTeclado"){
+    if(tecla.id=="controlTeclado"){
         mostrarTeclado();
     }
-    console.log(event.target.innerHTML);
-    if(event.target.id=="iniciarJuego"){
+    if(tecla.id=="iniciarJuego"){
         btnIniciarJuego();
     }
-    if(event.target.id=="agregarNuevaPalabra"){
+    if(tecla.id=="agregarNuevaPalabra"){
         btnagregarNuevaPalabra();
     }
-    if(event.target.id=="nuevoJuego"){
+    if(tecla.id=="nuevoJuego"){
         btnNuevoJuego();
     }
-    if(event.target.id=="desistir"){
+    if(tecla.id=="desistir"){
         btnDesistir();
     }
 });

@@ -65,6 +65,9 @@
     margin: 1px;
     font-size: 25px;
 }
+.presionada{
+    opacity: 0.3;
+}
 #a, #b, #c{
     text-align: center;
     height: 50px;
