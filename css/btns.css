@@ -1,4 +1,5 @@
 .btn1{
+    cursor: pointer;
     background: #0A3871;
     border-radius: 24px;
     margin: 10px;
@@ -9,6 +10,7 @@
     color: #FFFFFF;
 }
 .btn2{
+    cursor: pointer;
     background: #D8DFE8;
     border: 1px solid #0A3871;
     border-radius: 24px;
@@ -44,4 +46,32 @@
 #desistir{
     width: 80%;
     max-width: 332px;  
+}
+
+#controlTeclado{
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+}
+
+#teclado{
+    display: none;
+    height: 150px;
+}
+.teclas{
+    cursor: pointer;
+    border: 1px solid #0A3871;
+    background: #D8DFE8;
+    display: inline;
+    
+    color: #0A3871;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin: 1px;
+    font-size: 25px;
+    font-weight: 400;
+}
+#a, #b, #c{
+    text-align: center;
+    height: 50px;
 }

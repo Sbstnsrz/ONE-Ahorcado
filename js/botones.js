@@ -2,6 +2,7 @@ var dibujo = document.querySelector("#draw");
 var keyboard = document.querySelector("#keyboard");
 var botonesInicio = document.querySelector("#botonesInicio");
 var botonesJugando = document.querySelector("#botonesJugando");
+var btnteclado = document.querySelector("#controlTeclado");
 var teclado = document.querySelector("#teclado");
 
 function inicio(){
@@ -9,12 +10,16 @@ function inicio(){
     keyboard.style.display = "none";
     botonesInicio.style.display = "block";
     botonesJugando.style.display = "none";
+    btnteclado.style.display = "none";
+    teclado.style.display = "none";       
+
 }
 function iniciarJuego(){
     dibujo.style.display = "inline";
     keyboard.style.display = "inline-block";
     botonesInicio.style.display = "none";
-    botonesJugando.style.display = "inline";       
+    botonesJugando.style.display = "inline";
+    btnteclado.style.display= "inline"       
 }
 
 //Captura id de elemento clickeado

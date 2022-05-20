@@ -66,31 +66,6 @@ hr{
     letter-spacing: normal;
 }
 
-#controlTeclado{
-    font-size: 30px;
-}
-
-#teclado{
-    display: none;
-    height: 150px;
-}
-.teclas{
-    background: #D8DFE8;
-    display: inline;
-    text-align: center;
-    color: #0A3871;
-    border-radius: 24px;
-    padding: 5px;
-    width: 80px;
-    height: 60px;
-    margin: 5px;
-    font-size: 30px;
-    font-weight: 400;
-}
-#a, #b, #c{
-    height: 50px;
-}
-
 .copyright{
     font-family: 'Monaco';
     text-decoration: none;
