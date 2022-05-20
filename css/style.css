@@ -20,12 +20,22 @@ section{
     min-width: 375px;
     text-align:center;
 }
-#draw, #keyboard{
+.noMostrar{
     display: none;
 }
-table{
+.mostrar{
     display: inline;
-    align-items: center;
+}
+.mostrarInicio{
+    display: block;
+}
+.mostrarTeclado{
+    display: inline-block;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 1px;
+    display: inline;
 }
 #contenedor-palabra{
     font-size: 2em;

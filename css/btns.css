@@ -22,11 +22,7 @@
     color: var(--color1);
 }
 #botonesInicio{
-    display: none;
     margin-top: 200px;
-}
-.botonesJugando{
-    display: none;
 }
 .btns{
     vertical-align: middle;
@@ -46,22 +42,20 @@
 
 #controlTeclado{
     cursor: pointer;
-    display: none;
     font-size: 30px;
 }
 
 #teclado{
-    display: none;
     height: 150px;
 }
 .teclas{
+    vertical-align: middle;
     cursor: pointer;
-    border: 1px solid var(--color1);
     background: var(--color2);
-    display: inline; 
-    color: var(--color1);
     border-radius: 10px;
-    padding: 8px 10px;
+    border: 1px solid var(--color1);
+    color: var(--color1);
+    padding: 7px 10px;
     margin: 1px;
     font-size: 25px;
 }

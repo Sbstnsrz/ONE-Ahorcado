@@ -4,41 +4,63 @@ var contador = 0;
 var jugando = false;
 var palabraSec;
 
-function elegirPalabra(palabraPrevia){
-    var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
+var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
 
+
+function inicio(){
+    remplazarPorIdClase("#draw", "noMostrar");
+    remplazarPorIdClase("#keyboard", "noMostrar");
+    remplazarPorIdClase("#botonesJugando", "noMostrar");
+    remplazarPorIdClase("#controlTeclado", "noMostrar");
+    remplazarPorIdClase("#teclado", "noMostrar");
+    remplazarPorIdClase("#botonesInicio", "mostrarInicio");      
+
+}
+function iniciarJuego(){
+    remplazarPorIdClase("#draw", "mostrar");
+    remplazarPorIdClase("#botonesJugando", "mostrar");
+    remplazarPorIdClase("#controlTeclado", "btn-base btn2 mostrar");
+    remplazarPorIdClase("#botonesInicio", "noMostrar");
+    remplazarPorIdClase("#keyboard", "mostrarTeclado");    
+}
+
+function remplazarPorIdClase( id, clase){
+    document.querySelector(id).className = clase;
+}
+
+function elegirPalabra(palabraPrevia, array){
     do{
-    var palabraElegida = palabras[Math.floor(Math.random()*(palabras.length))];
+    var palabraElegida = array[Math.floor(Math.random()*(array.length))];
     }while(palabraPrevia==palabraElegida);
 
     return palabraElegida;
 }
-
 
 function reiniciarLetrasErradas(){
     panelLetras.textContent = "";
     panelLetras.className = "panelLetras erradas";
 }
 
-
 function btnIniciarJuego(){
-    palabraSec = elegirPalabra(palabraSec);
+    palabraSec = elegirPalabra(palabraSec, palabras);
     palabraSecreta(palabraSec);
     iniciarJuego();
     iniciarDibujo();
     reiniciarTeclado(tecladoTeclas);
     jugando = true;
 }
+
 function btnDesistir(){
     jugando = false;
     contador = 0;
     reiniciarLetrasErradas();
     reiniciarPalabraSecreta();
     inicio();
-
 }
+
 function btnagregarNuevaPalabra(){
 }
+
 function btnNuevoJuego(){
     reiniciarLetrasErradas();
     reiniciarPalabraSecreta();
@@ -73,6 +95,7 @@ function verificarLetra(letra){
     }
     
 }
+
 //Captura tecla presionada
 window.addEventListener('keydown', function(event){
     if(jugando){

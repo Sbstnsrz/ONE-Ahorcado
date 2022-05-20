@@ -35,9 +35,9 @@ function teclaPresionada(ubicacion){
     
 function mostrarTeclado(){
     var estado = document.querySelector("#teclado");
-    if(estado.style.display=="inline-block"){
-        estado.style.display="none";
+    if(estado.className.includes("mostrarTeclado")){
+        remplazarPorIdClase("#teclado", "noMostrar");
     }else{
-        estado.style.display="inline-block";
+        remplazarPorIdClase("#teclado", "mostrarTeclado");
     }
 }
