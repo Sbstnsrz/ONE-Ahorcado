@@ -47,8 +47,8 @@ function btnNuevoJuego(){
 function verificarLetra(letra){
     if((letra>="A"&&letra<="Z") || letra=="Ñ"){
         if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
-            panelLetras.textContent+=letra;
             if(!mostrarLetrasCorrectas(letra, palabraSec)){
+                panelLetras.textContent+=letra;
                 contador++;
                 dibujar(contador);
             }
