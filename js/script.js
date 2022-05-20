@@ -22,10 +22,10 @@ function reiniciarLetrasErradas(){
 
 function btnIniciarJuego(){
     palabraSec = elegirPalabra();
-    jugando = true;
     palabraSecreta(palabraSec);
     iniciarJuego();
     iniciarDibujo();
+    jugando = true;
 }
 function btnDesistir(){
     jugando = false;
@@ -38,37 +38,36 @@ function btnDesistir(){
 function btnagregarNuevaPalabra(){
 }
 function btnNuevoJuego(){
-    palabraSec = elegirPalabra();
-    jugando = true;
     reiniciarLetrasErradas();
     reiniciarPalabraSecreta();
-    palabraSecreta(palabraSec);
-    iniciarJuego();
-    iniciarDibujo();
+    btnIniciarJuego();
     contador = 0;
 }
 
 function verificarLetra(letra){
-    if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
-        panelLetras.textContent+=letra;
-        if(!mostrarLetrasCorrectas(letra, palabraSec)){
-            contador++;
-            dibujar(contador);
-        }
-        else{
-            if(verificarPalabra(palabraSec)){
-                panelLetras.textContent = "Ganaste, felicidades!";
-                panelLetras.classList.add("mensajeGanaste");
-                jugando = false;
+    if((letra>="A"&&letra<="Z") || letra=="Ñ"){
+        if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
+            panelLetras.textContent+=letra;
+            if(!mostrarLetrasCorrectas(letra, palabraSec)){
+                contador++;
+                dibujar(contador);
+            }
+            else{
+                if(verificarPalabra(palabraSec)){
+                    panelLetras.textContent = "Ganaste, felicidades!";
+                    panelLetras.classList.add("mensajeGanaste");
+                    jugando = false;
+                }
             }
         }
+        if(contador==9){
+            panelLetras.classList.add("mensajePerdiste");
+            panelLetras.textContent="Fin del juego!";
+            mostrarLetrasFaltantes(palabraSec);
+            jugando = false;
+        }
     }
-    if(contador==9){
-        panelLetras.classList.add("mensajePerdiste");
-        panelLetras.textContent="Fin del juego!";
-        mostrarLetrasFaltantes(palabraSec);
-        jugando = false;
-    }
+    
 }
 //Captura tecla presionada
 window.addEventListener('keydown', function(event){
