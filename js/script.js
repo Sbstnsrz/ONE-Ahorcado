@@ -73,6 +73,7 @@ function verificarLetra(letra){
 
     if((letra>="A"&&letra<="Z") || letra=="Ñ"){
         if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
+            teclaPresionada(letra);
             if(!mostrarLetrasCorrectas(letra, palabraSec)){
                 panelLetras.textContent+=letra;
                 contador++;

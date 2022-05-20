@@ -29,8 +29,13 @@ function reiniciarTeclado(ubicacion){
         element.classList.remove("presionada");
     });
 }
-function teclaPresionada(ubicacion){
-    ubicacion.classList.add("presionada");
+function teclaPresionada(letra){
+    var teclas = document.querySelectorAll(".teclas");
+    teclas.forEach(element => {
+        if(element.innerHTML.includes(letra)){
+            element.classList.add("presionada");
+        }
+    }); 
 }
     
 function mostrarTeclado(){
