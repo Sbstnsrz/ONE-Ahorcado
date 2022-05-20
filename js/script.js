@@ -23,7 +23,8 @@ function reiniciarLetrasErradas(){
 
 
 function btnIniciarJuego(){
-    palabraSecreta(elegirPalabra());
+    palabraSec = elegirPalabra();
+    palabraSecreta(palabraSec);
     iniciarJuego();
     iniciarDibujo();
     reiniciarTeclado(tecladoTeclas);
