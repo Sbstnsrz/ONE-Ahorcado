@@ -27,7 +27,7 @@ window.addEventListener("click",function(event){
     var tecla = event.target;
     if(tecla.className=="teclas"){
         verificarLetra(event.target.innerHTML);
-        event.target.classList.add("presionada");
+        teclaPresionada(event.target);
     }
     if(tecla.id=="controlTeclado"){
         mostrarTeclado();

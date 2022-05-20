@@ -1,7 +1,10 @@
-function crearTeclado(){
-    var sectionTeclado = document.querySelector("#teclado");
+
+
+
+function crearTeclado(sectionTeclado){
     var tabla = document.createElement("table");
     sectionTeclado.appendChild(tabla);
+
     var fila="A".charCodeAt(0);
 
     for(var columna="a".charCodeAt(0); columna<="c".charCodeAt(0);columna++){
@@ -21,10 +24,18 @@ function crearTeclado(){
             tr.appendChild(td);      
             fila++;
         }
-        
     }
-    
 }
+
+function reiniciarTeclado(ubicacion){
+    ubicacion.forEach(element => {
+        element.classList.remove("presionada");
+    });
+}
+function teclaPresionada(ubicacion){
+    ubicacion.classList.add("presionada");
+}
+    
 function mostrarTeclado(){
     var estado = document.querySelector("#teclado");
     console.log("teclado");
@@ -34,4 +45,3 @@ function mostrarTeclado(){
         estado.style.display="inline-block";
     }
 }
-crearTeclado();

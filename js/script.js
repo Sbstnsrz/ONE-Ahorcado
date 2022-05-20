@@ -1,15 +1,17 @@
 var panelLetras = document.querySelector(".panelLetras");
+var teclado = document.querySelector("#teclado");
+var tecladoTeclas = document.querySelectorAll(".teclas");
 var contador = 0;
 var jugando = false;
 var palabraSec;
 
 
 
-inicio();
 
 function elegirPalabra(){
     var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
-    var elegida = Math.round(Math.random()*palabras.length);
+    var elegida = Math.round(Math.random()*(palabras.length-1));
+    console.log(elegida);
     return palabras[elegida];
 }
 
@@ -21,10 +23,10 @@ function reiniciarLetrasErradas(){
 
 
 function btnIniciarJuego(){
-    palabraSec = elegirPalabra();
-    palabraSecreta(palabraSec);
+    palabraSecreta(elegirPalabra());
     iniciarJuego();
     iniciarDibujo();
+    reiniciarTeclado(tecladoTeclas);
     jugando = true;
 }
 function btnDesistir(){
@@ -41,10 +43,12 @@ function btnNuevoJuego(){
     reiniciarLetrasErradas();
     reiniciarPalabraSecreta();
     btnIniciarJuego();
+    reiniciarTeclado(tecladoTeclas);
     contador = 0;
 }
 
 function verificarLetra(letra){
+
     if((letra>="A"&&letra<="Z") || letra=="Ñ"){
         if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
             if(!mostrarLetrasCorrectas(letra, palabraSec)){
@@ -75,5 +79,10 @@ window.addEventListener('keydown', function(event){
         verificarLetra(event.key.toUpperCase());
     }
 });
+
+inicio();
+
+crearTeclado(teclado);
+
 
     
