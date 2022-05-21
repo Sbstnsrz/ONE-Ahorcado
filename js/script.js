@@ -4,10 +4,15 @@ var contador = 0;
 var jugando = false;
 var secretWord = "";
 
+var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
+                "guardarYEmpezar","cancelar",
+                "nuevoJuego","desistir","volverAlInicio"];
+
 
 //Palabras importadas desde JSON en http
 var wordsList = importWords();
 
+//Menu inicio.
 function home(){
     buttonsModeHome();      
     changeById("draw", "noMostrar");
@@ -16,6 +21,7 @@ function home(){
     changeById("keyboard", "noMostrar");
 
 }
+//Modo jugando
 function iniciarJuego(){
     buttonsModePlaying();
     changeById("draw", "mostrar");
@@ -23,7 +29,7 @@ function iniciarJuego(){
     changeById("word-panel", "mostrarTeclado");    
 }
 
-function reiniciarLetrasErradas(object){
+function keysPanelReset(object){
     object.textContent = "";
     object.className = "keys-panel key-wrong";
 }
@@ -33,7 +39,7 @@ function btnIniciarJuego(){
     wordPanelSet(secretWord);
     iniciarJuego();
     drawInit();
-    keyboardReset(tecladoTeclas);
+    keyboardReset();
     jugando = true;
     contador = 0;
 }
@@ -48,7 +54,7 @@ function btnCancelar(){
     home();
 }
 function btnVolverAlInicio(){
-    reiniciarLetrasErradas(keysPanel);
+    keysPanelReset(keysPanel);
     wordPanelUnset();
     home();
 }
@@ -59,10 +65,10 @@ function btnAgregarNuevaPalabra(){
 }
 
 function btnNuevoJuego(){
-    reiniciarLetrasErradas(keysPanel);
+    keysPanelReset(keysPanel);
     wordPanelUnset();
     btnIniciarJuego();
-    keyboardReset(tecladoTeclas);
+    keyboardReset();
     contador = 0;
 }
 
@@ -90,6 +96,10 @@ function verificarLetra(letra){
     
 }
 
+//Captura id de elemento clickeado
+document.addEventListener("click",function(event){
+    clickParse(event.target, buttonsList);
+});
 
 //Captura tecla presionada
 window.addEventListener('keydown', function(event){

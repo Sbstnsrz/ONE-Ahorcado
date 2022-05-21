@@ -1,31 +1,41 @@
-//Captura id de elemento clickeado
-document.addEventListener("click",function(event){
-    var key = event.target;
-    if(key.className=="keys"){
-        verificarLetra(event.target.innerHTML);
+
+function indexFind(object, wordList){
+    for(i=0;i<wordList.length;i++){
+        if(classFind(object, buttonsList[i])){
+            return i;
+        }
     }
-    else if(key.id=="keyboard-control"){
+}
+
+function classFind(object, word){
+    if(object.className.includes(word)){
+        return true;
+    }else{return false;}
+}
+
+function clickParse(object, list){
+
+    switch(indexFind(object, list)){
+        case 0: {btnIniciarJuego();break;}
+        case 1: {btnAgregarNuevaPalabra();break;}
+        case 2: {break;}
+        case 3: {btnCancelar();break;}
+        case 4: {btnNuevoJuego();break;}
+        case 5: {btnDesistir();break;}
+        case 6: {btnVolverAlInicio();break;}
+        default:break;
+    }
+
+    if(object.className=="keys"){
+        verificarLetra(object.innerHTML);
+    }else if(object.id=="keyboard-control"){
         keyboardShow();
     }
-    else if(key.className.includes("iniciarJuego")){
-        btnIniciarJuego();
-    }
-    else if(key.className.includes("nuevoJuego")){
-        btnNuevoJuego();
-    }
-    else if(key.className.includes("desistir")){
-        btnDesistir();
-    }
-    else if(key.className.includes("cancelar")){
-        btnCancelar();
-    }
-    else if(key.className.includes("agregarNuevaPalabra")){
-        btnAgregarNuevaPalabra();
-    }
-    else if(key.className.includes("volverAlInicio")){
-        btnVolverAlInicio();
-    }
-});
+}
+
+
+
+
 
 function changeById(id, classes, content){
     document.getElementById(id).className = classes;

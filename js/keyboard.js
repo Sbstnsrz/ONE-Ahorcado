@@ -15,7 +15,7 @@ function keyboardSet(location){
             else if(fila==79){fila=209; enie=true;} 
 
             var td = document.createElement("td");
-            td.className = "teclas";
+            td.className = "keys";
             td.textContent = String.fromCharCode(fila);
             var tr = document.getElementById(String.fromCharCode(row));
             tr.appendChild(td);      
@@ -24,13 +24,13 @@ function keyboardSet(location){
     }
 }
 
-function keyboardReset(ubicacion){
-    ubicacion.forEach(element => {
-        element.classList.remove("presionada");
-    });
+function keyboardReset(){
+    document.querySelectorAll(".presionada").forEach(
+        element => {element.classList.remove("presionada");}
+    );
 }
 function keyboardKeydown(letra){
-    var teclas = document.querySelectorAll(".teclas");
+    var teclas = document.querySelectorAll(".keys");
     teclas.forEach(element => {
         if(element.innerHTML.includes(letra)){
             element.classList.add("presionada");
