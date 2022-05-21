@@ -1,28 +1,28 @@
 //Captura id de elemento clickeado
 document.addEventListener("click",function(event){
-    var tecla = event.target;
-    if(tecla.className=="teclas"){
+    var key = event.target;
+    if(key.className=="keys"){
         verificarLetra(event.target.innerHTML);
     }
-    else if(tecla.id=="keyboard-control"){
-        mostrarTeclado();
+    else if(key.id=="keyboard-control"){
+        keyboardShow();
     }
-    else if(tecla.className.includes("iniciarJuego")){
+    else if(key.className.includes("iniciarJuego")){
         btnIniciarJuego();
     }
-    else if(tecla.className.includes("nuevoJuego")){
+    else if(key.className.includes("nuevoJuego")){
         btnNuevoJuego();
     }
-    else if(tecla.className.includes("desistir")){
+    else if(key.className.includes("desistir")){
         btnDesistir();
     }
-    else if(tecla.className.includes("cancelar")){
+    else if(key.className.includes("cancelar")){
         btnCancelar();
     }
-    else if(tecla.className.includes("agregarNuevaPalabra")){
+    else if(key.className.includes("agregarNuevaPalabra")){
         btnAgregarNuevaPalabra();
     }
-    else if(tecla.className.includes("volverAlInicio")){
+    else if(key.className.includes("volverAlInicio")){
         btnVolverAlInicio();
     }
 });
@@ -55,6 +55,6 @@ function buttonsModeAddWord(){
     changeById("div-button-1","mostrar", "");
     changeById("div-button-2","mostrar", "");
 }
-function buttonsModeLosser(){
+function buttonsModeLoser(){
     changeById("button-2","btn-base btn2 volverAlInicio","Volver al inicio");
 }

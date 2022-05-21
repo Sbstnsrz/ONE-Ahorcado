@@ -1,14 +1,14 @@
-var panelLetras = document.querySelector(".keys-panel");
+var keysPanel = document.querySelector(".keys-panel");
 var teclado = document.querySelector("#keyboard");
 var contador = 0;
 var jugando = false;
-var palabraSec = "";
+var secretWord = "";
 
 
 //Palabras importadas desde JSON en http
-var palabras = importarPalabras();
+var wordsList = importWords();
 
-function inicio(){
+function home(){
     buttonsModeHome();      
     changeById("draw", "noMostrar");
     changeById("word-panel", "noMostrar");
@@ -29,11 +29,11 @@ function reiniciarLetrasErradas(object){
 }
 
 function btnIniciarJuego(){
-    palabraSec = elegirPalabra(palabraSec, palabras);
-    palabraSecreta(palabraSec);
+    secretWord = wordSelect(secretWord, wordsList);
+    wordPanelSet(secretWord);
     iniciarJuego();
-    iniciarDibujo();
-    reiniciarTeclado(tecladoTeclas);
+    drawInit();
+    keyboardReset(tecladoTeclas);
     jugando = true;
     contador = 0;
 }
@@ -41,16 +41,16 @@ function btnIniciarJuego(){
 function btnDesistir(){
     jugando = false;
     contador=9;
-    losserMsj(panelLetras);  
+    loserMsj(keysPanel, secretWord);  
 }
 
 function btnCancelar(){
-    inicio();
+    home();
 }
 function btnVolverAlInicio(){
-    reiniciarLetrasErradas(panelLetras);
-    reiniciarPalabraSecreta();
-    inicio();
+    reiniciarLetrasErradas(keysPanel);
+    wordPanelUnset();
+    home();
 }
 
 function btnAgregarNuevaPalabra(){
@@ -59,26 +59,26 @@ function btnAgregarNuevaPalabra(){
 }
 
 function btnNuevoJuego(){
-    reiniciarLetrasErradas(panelLetras);
-    reiniciarPalabraSecreta();
+    reiniciarLetrasErradas(keysPanel);
+    wordPanelUnset();
     btnIniciarJuego();
-    reiniciarTeclado(tecladoTeclas);
+    keyboardReset(tecladoTeclas);
     contador = 0;
 }
 
 function verificarLetra(letra){
 
     if((letra>="A"&&letra<="Z") || letra=="Ñ"){
-        if(contador<9 && panelLetras.textContent.indexOf(letra)==-1){
-            teclaPresionada(letra);
-            if(!mostrarLetrasCorrectas(letra, palabraSec)){
-                panelLetras.textContent+=letra;
+        if(contador<9 && keysPanel.textContent.indexOf(letra)==-1){
+            keyboardKeydown(letra);
+            if(!keysShowCorrect(letra, secretWord)){
+                keysPanel.textContent+=letra;
                 contador++;
-                dibujar(contador);
+                drawNewPart(contador);
             }
             else{
-                if(verificarPalabra(palabraSec)){
-                    winnerMsj(panelLetras);
+                if(wordCheck(secretWord)){
+                    winnerMsj(keysPanel);
                     jugando = false;
                 }
             }
@@ -89,16 +89,7 @@ function verificarLetra(letra){
     }
     
 }
-function winnerMsj(object){
-    object.textContent = "Ganaste, felicidades!";
-    object.className = "keys-panel mensaje ganaste";
-}
-function losserMsj(object){
-    buttonsModeLosser();
-    mostrarLetrasFaltantes(palabraSec);
-    object.className = "keys-panel mensaje perdiste";
-    object.textContent="Fin del juego!";
-}
+
 
 //Captura tecla presionada
 window.addEventListener('keydown', function(event){
@@ -107,9 +98,9 @@ window.addEventListener('keydown', function(event){
     }
 });
 
-inicio();
+home();
 
-crearTeclado(teclado);
+keyboardSet(teclado);
 var tecladoTeclas = document.querySelectorAll(".teclas");
 
 

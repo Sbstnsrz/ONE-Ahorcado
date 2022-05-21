@@ -1,7 +1,7 @@
 var pantalla = document.getElementById("draw");
 var draw = pantalla.getContext("2d");
 
-function iniciarDibujo(){
+function drawInit(){
         draw.clearRect(0, 0, pantalla.width, pantalla.height);
 
         draw.beginPath();
@@ -14,7 +14,7 @@ function iniciarDibujo(){
         draw.fillRect(0,355,294,360);
 }
 
-function dibujar(cont){
+function drawNewPart(cont){
     switch(cont){
         case 1:{//mastil 1
                 draw.fillRect(80,0,5,360);

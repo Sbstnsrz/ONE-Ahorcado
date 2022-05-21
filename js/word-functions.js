@@ -1,19 +1,32 @@
+//Muestra mensaje de ganaste.
+function winnerMsj(object){
+    object.textContent = "Ganaste, felicidades!";
+    object.className = "keys-panel mensaje ganaste";
+}
+//Muestra mensaje al perder.
+function loserMsj(object, word){
+    buttonsModeLoser();
+    keysShowMissed(word);
+    object.className = "keys-panel mensaje perdiste";
+    object.textContent="Fin del juego!";
+}
 
-function reiniciarPalabraSecreta(){
-    //borra elementos previos.
+//Borra word-panel
+function wordPanelUnset(){
     document.querySelectorAll(".palabra").forEach(element =>{element.remove();});
     document.querySelectorAll(".dash").forEach(element =>{element.remove();});
 }
 
-function palabraSecreta(palabra){
-    var contenedor = document.querySelector("#word-container");
+//Crea word-panel para palabra ingresada.
+function wordPanelSet(word){
+    var container = document.querySelector("#word-container");
     var dash = document.querySelector("#dash");
     //generar campos de letras
-    for(i=0; i<palabra.length;i++){
+    for(i=0; i<word.length;i++){
         //campo de letra
         var td = document.createElement("td");
         td.className= "palabra";
-        contenedor.appendChild(td);
+        container.appendChild(td);
         //campo con guion
         var td = document.createElement("td");
         var linea = document.createElement("hr");
@@ -22,7 +35,26 @@ function palabraSecreta(palabra){
         dash.appendChild(td);
     }
 }
-function mostrarLetrasCorrectas(letra, palSec){
+
+//Elige una palabra de la lista distinta a la ingresada, y la regresa.
+function wordSelect(previousWord, array){
+    do{
+    var wordSelected = array[Math.floor(Math.random()*(array.length))];
+    }while(previousWord==wordSelected);
+
+    return wordSelected;
+}
+
+
+function wordCheck(valor){
+    var texto = "";
+    document.querySelectorAll(".palabra").forEach(element => {
+        texto+=element.textContent;
+    });
+    if(texto.includes(valor)){return true;}else{return false;}
+}
+
+function keysShowCorrect(letra, palSec){
     var letras = document.querySelectorAll(".palabra");
     var encontrada = false;
     for(i=0;i<palSec.length;i++){
@@ -34,14 +66,7 @@ function mostrarLetrasCorrectas(letra, palSec){
     if(encontrada){return true;}else{return false;}
 }
 
-function verificarPalabra(valor){
-    var texto = "";
-    document.querySelectorAll(".palabra").forEach(element => {
-        texto+=element.textContent;
-    });
-    if(texto.includes(valor)){return true;}else{return false;}
-}
-function mostrarLetrasFaltantes(palsec){
+function keysShowMissed(palsec){
     var str = document.querySelectorAll(".palabra");
     for(i=0;i<palsec.length;i++){
         if(!(str[i].innerHTML.includes(palsec[i]))){
@@ -49,12 +74,4 @@ function mostrarLetrasFaltantes(palsec){
             str[i].innerHTML=palsec[i];
         }
     }
-}
-
-function elegirPalabra(palabraPrevia, array){
-    do{
-    var palabraElegida = array[Math.floor(Math.random()*(array.length))];
-    }while(palabraPrevia==palabraElegida);
-
-    return palabraElegida;
 }

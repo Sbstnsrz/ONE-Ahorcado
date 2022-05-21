@@ -1,13 +1,13 @@
-function crearTeclado(sectionTeclado){
-    var tabla = document.createElement("table");
-    sectionTeclado.appendChild(tabla);
+function keyboardSet(location){
+    var table = document.createElement("table");
+    location.appendChild(table);
 
     var fila="A".charCodeAt(0);
 
-    for(var columna="a".charCodeAt(0); columna<="c".charCodeAt(0);columna++){
+    for(var row="a".charCodeAt(0); row<="c".charCodeAt(0);row++){
         var tr = document.createElement("tr");
-        tr.id=String.fromCharCode(columna);
-        tabla.appendChild(tr);
+        tr.id=String.fromCharCode(row);
+        table.appendChild(tr);
         var enie=false;
         for(var i=0;i<9;i++){ 
             //exepcion para Ñ
@@ -17,19 +17,19 @@ function crearTeclado(sectionTeclado){
             var td = document.createElement("td");
             td.className = "teclas";
             td.textContent = String.fromCharCode(fila);
-            var tr = document.getElementById(String.fromCharCode(columna));
+            var tr = document.getElementById(String.fromCharCode(row));
             tr.appendChild(td);      
             fila++;
         }
     }
 }
 
-function reiniciarTeclado(ubicacion){
+function keyboardReset(ubicacion){
     ubicacion.forEach(element => {
         element.classList.remove("presionada");
     });
 }
-function teclaPresionada(letra){
+function keyboardKeydown(letra){
     var teclas = document.querySelectorAll(".teclas");
     teclas.forEach(element => {
         if(element.innerHTML.includes(letra)){
@@ -38,7 +38,7 @@ function teclaPresionada(letra){
     }); 
 }
     
-function mostrarTeclado(){
+function keyboardShow(){
     var estado = document.querySelector("#keyboard");
     if(estado.className.includes("mostrarTeclado")){
         changeById("keyboard", "noMostrar");

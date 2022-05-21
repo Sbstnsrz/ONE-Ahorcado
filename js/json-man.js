@@ -1,4 +1,4 @@
-function importarPalabras(){
+function importWords(){
     var xhr = new XMLHttpRequest;
     var recibido = [];
     xhr.open("GET", "https://raw.githubusercontent.com/Sbstnsrz/ONE-Ahorcado/master/data/list.json");
