@@ -2,7 +2,7 @@ var panelLetras = document.querySelector(".panelLetras");
 var teclado = document.querySelector("#teclado");
 var contador = 0;
 var jugando = false;
-var palabraSec;
+var palabraSec = "";
 
 var palabras =["HTML","JAVA","LOGICA","SCRIPT","JSON","CANVAS","ALURA"];
 
@@ -59,6 +59,7 @@ function btnDesistir(){
 }
 
 function btnagregarNuevaPalabra(){
+    
 }
 
 function btnNuevoJuego(){

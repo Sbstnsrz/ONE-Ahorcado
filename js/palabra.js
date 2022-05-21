@@ -26,16 +26,12 @@ function mostrarLetrasCorrectas(letra, palSec){
     var letras = document.querySelectorAll(".palabra");
     var encontrada = false;
     for(i=0;i<palSec.length;i++){
-        if(palSec[i]==letra){
+        if(palSec[i].includes(letra)){
             letras[i].textContent=letra;
             encontrada = true;
         }
     }
-    if(encontrada){
-        return true;
-    }else{
-        return false;
-    }
+    if(encontrada){return true;}else{return false;}
 }
 
 function verificarPalabra(valor){
@@ -43,18 +39,13 @@ function verificarPalabra(valor){
     document.querySelectorAll(".palabra").forEach(element => {
         texto+=element.textContent;
     });
-    if(texto.includes(valor)){
-        return true;
-    }else{
-        return false;
-    }
+    if(texto.includes(valor)){return true;}else{return false;}
 }
 function mostrarLetrasFaltantes(palsec){
     var str = document.querySelectorAll(".palabra");
     for(i=0;i<palsec.length;i++){
         if(!(str[i].innerHTML.includes(palsec[i]))){
-            console.log(str[i].innerHTML);
-            str[i].style.color = "red";
+            str[i].classList.add("perdiste");
             str[i].innerHTML=palsec[i];
         }
     }
