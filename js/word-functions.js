@@ -2,12 +2,12 @@
 function reiniciarPalabraSecreta(){
     //borra elementos previos.
     document.querySelectorAll(".palabra").forEach(element =>{element.remove();});
-    document.querySelectorAll(".guion").forEach(element =>{element.remove();});
+    document.querySelectorAll(".dash").forEach(element =>{element.remove();});
 }
 
 function palabraSecreta(palabra){
-    var contenedor = document.querySelector("#contenedor-Palabra");
-    var guion = document.querySelector("#guion");
+    var contenedor = document.querySelector("#word-container");
+    var dash = document.querySelector("#dash");
     //generar campos de letras
     for(i=0; i<palabra.length;i++){
         //campo de letra
@@ -17,9 +17,9 @@ function palabraSecreta(palabra){
         //campo con guion
         var td = document.createElement("td");
         var linea = document.createElement("hr");
-        td.className = "guion";
+        td.className = "dash";
         td.appendChild(linea);
-        guion.appendChild(td);
+        dash.appendChild(td);
     }
 }
 function mostrarLetrasCorrectas(letra, palSec){

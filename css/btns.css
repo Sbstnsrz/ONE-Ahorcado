@@ -41,12 +41,12 @@
     max-width: 332px;  
 }
 
-#controlTeclado{
+#keyboard-control{
     cursor: pointer;
     font-size: 30px;
 }
 
-#teclado{
+#keyboard{
     height: 150px;
 }
 .teclas{

@@ -1,5 +1,5 @@
-var panelLetras = document.querySelector(".panelLetras");
-var teclado = document.querySelector("#teclado");
+var panelLetras = document.querySelector(".keys-panel");
+var teclado = document.querySelector("#keyboard");
 var contador = 0;
 var jugando = false;
 var palabraSec = "";
@@ -11,21 +11,21 @@ var palabras = importarPalabras();
 function inicio(){
     buttonsModeHome();      
     changeById("draw", "noMostrar");
+    changeById("word-panel", "noMostrar");
+    changeById("keyboard-control", "noMostrar");
     changeById("keyboard", "noMostrar");
-    changeById("controlTeclado", "noMostrar");
-    changeById("teclado", "noMostrar");
 
 }
 function iniciarJuego(){
     buttonsModePlaying();
     changeById("draw", "mostrar");
-    changeById("controlTeclado", "btn-base btn2 mostrar");
-    changeById("keyboard", "mostrarTeclado");    
+    changeById("keyboard-control", "btn-base btn2 mostrar");
+    changeById("word-panel", "mostrarTeclado");    
 }
 
 function reiniciarLetrasErradas(object){
     object.textContent = "";
-    object.className = "panelLetras erradas";
+    object.className = "keys-panel key-wrong";
 }
 
 function btnIniciarJuego(){
@@ -55,7 +55,7 @@ function btnVolverAlInicio(){
 
 function btnAgregarNuevaPalabra(){
     buttonsModeAddWord();
-    changeById("keyboard", "mostrarTeclado");
+    changeById("word-panel", "mostrarTeclado");
 }
 
 function btnNuevoJuego(){
@@ -91,12 +91,12 @@ function verificarLetra(letra){
 }
 function winnerMsj(object){
     object.textContent = "Ganaste, felicidades!";
-    object.className = "panelLetras mensaje ganaste";
+    object.className = "keys-panel mensaje ganaste";
 }
 function losserMsj(object){
     buttonsModeLosser();
     mostrarLetrasFaltantes(palabraSec);
-    object.className = "panelLetras mensaje perdiste";
+    object.className = "keys-panel mensaje perdiste";
     object.textContent="Fin del juego!";
 }
 

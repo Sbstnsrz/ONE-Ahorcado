@@ -4,7 +4,7 @@ document.addEventListener("click",function(event){
     if(tecla.className=="teclas"){
         verificarLetra(event.target.innerHTML);
     }
-    else if(tecla.id=="controlTeclado"){
+    else if(tecla.id=="keyboard-control"){
         mostrarTeclado();
     }
     else if(tecla.className.includes("iniciarJuego")){
