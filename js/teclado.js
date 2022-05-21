@@ -41,8 +41,8 @@ function teclaPresionada(letra){
 function mostrarTeclado(){
     var estado = document.querySelector("#teclado");
     if(estado.className.includes("mostrarTeclado")){
-        remplazarPorIdClase("#teclado", "noMostrar");
+        changeById("teclado", "noMostrar");
     }else{
-        remplazarPorIdClase("#teclado", "mostrarTeclado");
+        changeById("teclado", "mostrarTeclado");
     }
 }

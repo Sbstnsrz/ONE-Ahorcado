@@ -28,33 +28,33 @@ document.addEventListener("click",function(event){
 });
 
 function changeById(id, classes, content){
-    document.querySelector(id).className = classes;
+    document.getElementById(id).className = classes;
     if(!content==""){
-        document.querySelector(id).textContent = content;
+        document.getElementById(id).textContent = content;
     }
 }
 
 function buttonsModeHome(){
-    changeById("#button-1","btn-base btn1 iniciarJuego","Iniciar juego");
-    changeById("#button-2","btn-base btn2 agregarNuevaPalabra","Agregar nueva palabra");
-    changeById("#div-buttons","botonesInicio", "");
-    changeById("#div-button-1","btns", "");
-    changeById("#div-button-2","btns", "");
+    changeById("button-1","btn-base btn1 iniciarJuego","Iniciar juego");
+    changeById("button-2","btn-base btn2 agregarNuevaPalabra","Agregar nueva palabra");
+    changeById("div-buttons","botonesInicio", "");
+    changeById("div-button-1","btns", "");
+    changeById("div-button-2","btns", "");
 }
 function buttonsModePlaying(){
-    changeById("#button-1","btn-base btn1 nuevoJuego","Nuevo juego");
-    changeById("#button-2","btn-base btn2 desistir","Desistir");
-    changeById("#div-buttons","mostrar", "");
-    changeById("#div-button-1","mostrar", "");
-    changeById("#div-button-2","mostrar", "");
+    changeById("button-1","btn-base btn1 nuevoJuego","Nuevo juego");
+    changeById("button-2","btn-base btn2 desistir","Desistir");
+    changeById("div-buttons","mostrar", "");
+    changeById("div-button-1","mostrar", "");
+    changeById("div-button-2","mostrar", "");
 }
 function buttonsModeAddWord(){
-    changeById("#button-1","btn-base btn1 guardarYEmpezar","Guardar y empezar");
-    changeById("#button-2","btn-base btn2 cancelar","Cancelar");
-    changeById("#div-buttons","mostrar", "");
-    changeById("#div-button-1","mostrar", "");
-    changeById("#div-button-2","mostrar", "");
+    changeById("button-1","btn-base btn1 guardarYEmpezar","Guardar y empezar");
+    changeById("button-2","btn-base btn2 cancelar","Cancelar");
+    changeById("div-buttons","mostrar", "");
+    changeById("div-button-1","mostrar", "");
+    changeById("div-button-2","mostrar", "");
 }
-function buttonsModeDesistido(){
-    changeById("#button-2","btn-base btn2 volverAlInicio","Volver al inicio");
+function buttonsModeLosser(){
+    changeById("button-2","btn-base btn2 volverAlInicio","Volver al inicio");
 }

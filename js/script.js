@@ -8,25 +8,19 @@ var palabraSec = "";
 //Palabras importadas desde JSON en http
 var palabras = importarPalabras();
 
-
-
 function inicio(){
     buttonsModeHome();      
-    remplazarPorIdClase("#draw", "noMostrar");
-    remplazarPorIdClase("#keyboard", "noMostrar");
-    remplazarPorIdClase("#controlTeclado", "noMostrar");
-    remplazarPorIdClase("#teclado", "noMostrar");
+    changeById("draw", "noMostrar");
+    changeById("keyboard", "noMostrar");
+    changeById("controlTeclado", "noMostrar");
+    changeById("teclado", "noMostrar");
 
 }
 function iniciarJuego(){
     buttonsModePlaying();
-    remplazarPorIdClase("#draw", "mostrar");
-    remplazarPorIdClase("#controlTeclado", "btn-base btn2 mostrar");
-    remplazarPorIdClase("#keyboard", "mostrarTeclado");    
-}
-
-function remplazarPorIdClase( id, clase){
-    document.querySelector(id).className = clase;
+    changeById("draw", "mostrar");
+    changeById("controlTeclado", "btn-base btn2 mostrar");
+    changeById("keyboard", "mostrarTeclado");    
 }
 
 function reiniciarLetrasErradas(object){
@@ -41,12 +35,12 @@ function btnIniciarJuego(){
     iniciarDibujo();
     reiniciarTeclado(tecladoTeclas);
     jugando = true;
+    contador = 0;
 }
 
 function btnDesistir(){
     jugando = false;
-    contador = 0;
-    buttonsModeDesistido();
+    contador=9;
     losserMsj(panelLetras);  
 }
 
@@ -61,7 +55,7 @@ function btnVolverAlInicio(){
 
 function btnAgregarNuevaPalabra(){
     buttonsModeAddWord();
-    remplazarPorIdClase("#keyboard", "mostrarTeclado");
+    changeById("keyboard", "mostrarTeclado");
 }
 
 function btnNuevoJuego(){
@@ -90,8 +84,7 @@ function verificarLetra(letra){
             }
         }
         if(contador==9){
-            losserMsj(panelLetras);
-            jugando = false;
+            btnDesistir();
         }
     }
     
@@ -101,6 +94,7 @@ function winnerMsj(object){
     object.className = "panelLetras mensaje ganaste";
 }
 function losserMsj(object){
+    buttonsModeLosser();
     mostrarLetrasFaltantes(palabraSec);
     object.className = "panelLetras mensaje perdiste";
     object.textContent="Fin del juego!";
