@@ -22,6 +22,9 @@ document.addEventListener("click",function(event){
     else if(tecla.className.includes("agregarNuevaPalabra")){
         btnAgregarNuevaPalabra();
     }
+    else if(tecla.className.includes("volverAlInicio")){
+        btnVolverAlInicio();
+    }
 });
 
 function changeById(id, classes, content){
@@ -51,4 +54,7 @@ function buttonsModeAddWord(){
     changeById("#div-buttons","mostrar", "");
     changeById("#div-button-1","mostrar", "");
     changeById("#div-button-2","mostrar", "");
+}
+function buttonsModeDesistido(){
+    changeById("#button-2","btn-base btn2 volverAlInicio","Volver al inicio");
 }

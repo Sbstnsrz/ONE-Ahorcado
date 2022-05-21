@@ -46,12 +46,16 @@ function btnIniciarJuego(){
 function btnDesistir(){
     jugando = false;
     contador = 0;
-    reiniciarLetrasErradas(panelLetras);
-    reiniciarPalabraSecreta();
-    inicio();
+    buttonsModeDesistido();
+    losserMsj(panelLetras);  
 }
 
 function btnCancelar(){
+    inicio();
+}
+function btnVolverAlInicio(){
+    reiniciarLetrasErradas(panelLetras);
+    reiniciarPalabraSecreta();
     inicio();
 }
 
@@ -87,7 +91,6 @@ function verificarLetra(letra){
         }
         if(contador==9){
             losserMsj(panelLetras);
-            mostrarLetrasFaltantes(palabraSec);
             jugando = false;
         }
     }
@@ -98,6 +101,7 @@ function winnerMsj(object){
     object.className = "panelLetras mensaje ganaste";
 }
 function losserMsj(object){
+    mostrarLetrasFaltantes(palabraSec);
     object.className = "panelLetras mensaje perdiste";
     object.textContent="Fin del juego!";
 }

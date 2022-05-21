@@ -76,6 +76,9 @@ hr{
 .ganaste{
     color: green;
 }
+.letrasFaltantes{
+    opacity: 0.3;
+}
 
 .copyright{
     font-family: 'Monaco';

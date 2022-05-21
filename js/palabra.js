@@ -45,7 +45,7 @@ function mostrarLetrasFaltantes(palsec){
     var str = document.querySelectorAll(".palabra");
     for(i=0;i<palsec.length;i++){
         if(!(str[i].innerHTML.includes(palsec[i]))){
-            str[i].classList.add("perdiste");
+            str[i].classList.add("letrasFaltantes");
             str[i].innerHTML=palsec[i];
         }
     }

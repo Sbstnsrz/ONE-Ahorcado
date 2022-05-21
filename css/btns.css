@@ -35,7 +35,8 @@
 .agregarNuevaPalabra{
     width: 280px;
 }
-.nuevoJuego, .desistir, .cancelar, .guardarYEmpezar{
+.nuevoJuego, .desistir, .volverAlInicio,
+.cancelar, .guardarYEmpezar{
     width: 80%;
     max-width: 332px;  
 }
