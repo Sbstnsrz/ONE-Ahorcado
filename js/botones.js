@@ -4,19 +4,22 @@ window.addEventListener("click",function(event){
     if(tecla.className=="teclas"){
         verificarLetra(event.target.innerHTML);
     }
-    if(tecla.id=="controlTeclado"){
+    else if(tecla.id=="controlTeclado"){
         mostrarTeclado();
     }
-    if(tecla.id=="iniciarJuego"){
+    else if(tecla.className.includes("iniciarJuego")){
         btnIniciarJuego();
     }
-    if(tecla.id=="agregarNuevaPalabra"){
-        btnagregarNuevaPalabra();
-    }
-    if(tecla.id=="nuevoJuego"){
+    else if(tecla.className.includes("nuevoJuego")){
         btnNuevoJuego();
     }
-    if(tecla.id=="desistir"){
+    else if(tecla.className.includes("desistir")){
         btnDesistir();
+    }
+    else if(tecla.className.includes("cancelar")){
+        btnCancelar();
+    }
+    else if(tecla.className.includes("agregarNuevaPalabra")){
+        btnAgregarNuevaPalabra();
     }
 });

@@ -21,21 +21,21 @@
     border: 1px solid var(--color1);
     color: var(--color1);
 }
-#botonesInicio{
+.botonesInicio{
     margin-top: 200px;
 }
 .btns{
     vertical-align: middle;
     width: 100%;
 }
-#iniciarJuego{
+.iniciarJuego{
     width: 317px;
     height: 114px;
 }
-#agregarNuevaPalabra{
+.agregarNuevaPalabra{
     width: 280px;
 }
-#nuevoJuego, #desistir {
+.nuevoJuego, .desistir, .cancelar, .guardarYEmpezar{
     width: 80%;
     max-width: 332px;  
 }
