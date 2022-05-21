@@ -29,47 +29,9 @@ function remplazarPorIdClase( id, clase){
     document.querySelector(id).className = clase;
 }
 
-function changeById(id, classes, content){
-    document.querySelector(id).className = classes;
-    if(!content==""){
-        document.querySelector(id).textContent = content;
-    }
-}
-
-function buttonsModeHome(){
-    changeById("#button-1","btn-base btn1 iniciarJuego","Iniciar juego");
-    changeById("#button-2","btn-base btn2 agregarNuevaPalabra","Agregar nueva palabra");
-    changeById("#div-buttons","botonesInicio", "");
-    changeById("#div-button-1","btns", "");
-    changeById("#div-button-2","btns", "");
-}
-function buttonsModePlaying(){
-    changeById("#button-1","btn-base btn1 nuevoJuego","Nuevo juego");
-    changeById("#button-2","btn-base btn2 desistir","Desistir");
-    changeById("#div-buttons","mostrar", "");
-    changeById("#div-button-1","mostrar", "");
-    changeById("#div-button-2","mostrar", "");
-}
-function buttonsModeAddWord(){
-    changeById("#button-1","btn-base btn1 guardarYEmpezar","Guardar y empezar");
-    changeById("#button-2","btn-base btn2 cancelar","Cancelar");
-    changeById("#div-buttons","mostrar", "");
-    changeById("#div-button-1","mostrar", "");
-    changeById("#div-button-2","mostrar", "");
-    console.log("agregar");
-}
-
-function elegirPalabra(palabraPrevia, array){
-    do{
-    var palabraElegida = array[Math.floor(Math.random()*(array.length))];
-    }while(palabraPrevia==palabraElegida);
-
-    return palabraElegida;
-}
-
-function reiniciarLetrasErradas(){
-    panelLetras.textContent = "";
-    panelLetras.className = "panelLetras erradas";
+function reiniciarLetrasErradas(object){
+    object.textContent = "";
+    object.className = "panelLetras erradas";
 }
 
 function btnIniciarJuego(){
@@ -84,7 +46,7 @@ function btnIniciarJuego(){
 function btnDesistir(){
     jugando = false;
     contador = 0;
-    reiniciarLetrasErradas();
+    reiniciarLetrasErradas(panelLetras);
     reiniciarPalabraSecreta();
     inicio();
 }
@@ -99,7 +61,7 @@ function btnAgregarNuevaPalabra(){
 }
 
 function btnNuevoJuego(){
-    reiniciarLetrasErradas();
+    reiniciarLetrasErradas(panelLetras);
     reiniciarPalabraSecreta();
     btnIniciarJuego();
     reiniciarTeclado(tecladoTeclas);
@@ -118,20 +80,26 @@ function verificarLetra(letra){
             }
             else{
                 if(verificarPalabra(palabraSec)){
-                    panelLetras.textContent = "Ganaste, felicidades!";
-                    panelLetras.className = "panelLetras mensaje ganaste";
+                    winnerMsj(panelLetras);
                     jugando = false;
                 }
             }
         }
         if(contador==9){
-            panelLetras.className = "panelLetras mensaje perdiste";
-            panelLetras.textContent="Fin del juego!";
+            losserMsj(panelLetras);
             mostrarLetrasFaltantes(palabraSec);
             jugando = false;
         }
     }
     
+}
+function winnerMsj(object){
+    object.textContent = "Ganaste, felicidades!";
+    object.className = "panelLetras mensaje ganaste";
+}
+function losserMsj(object){
+    object.className = "panelLetras mensaje perdiste";
+    object.textContent="Fin del juego!";
 }
 
 //Captura tecla presionada

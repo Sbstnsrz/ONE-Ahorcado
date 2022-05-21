@@ -50,3 +50,11 @@ function mostrarLetrasFaltantes(palsec){
         }
     }
 }
+
+function elegirPalabra(palabraPrevia, array){
+    do{
+    var palabraElegida = array[Math.floor(Math.random()*(array.length))];
+    }while(palabraPrevia==palabraElegida);
+
+    return palabraElegida;
+}
