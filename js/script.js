@@ -12,26 +12,15 @@ var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
 //Palabras importadas desde JSON en http
 var wordsList = importWords();
 
-//Menu inicio.
+//Modo inicio:
 function home(){
     buttonsModeHome();      
-    changeById("draw", "noMostrar");
-    changeById("word-panel", "noMostrar");
-    changeById("keyboard-control", "noMostrar");
-    changeById("keyboard", "noMostrar");
+    changeById("draw", "hidded");
+    changeById("word-panel", "hidded");
+    changeById("keyboard-control", "hidded");
+    changeById("input", "input hidded");
+    changeById("keyboard", "hidded");
 
-}
-//Modo jugando
-function iniciarJuego(){
-    buttonsModePlaying();
-    changeById("draw", "mostrar");
-    changeById("keyboard-control", "btn-base btn2 mostrar");
-    changeById("word-panel", "mostrarTeclado");    
-}
-
-function keysPanelReset(object){
-    object.textContent = "";
-    object.className = "keys-panel key-wrong";
 }
 
 function btnIniciarJuego(){
@@ -44,6 +33,28 @@ function btnIniciarJuego(){
     contador = 0;
 }
 
+function btnAgregarNuevaPalabra(){
+    changeById("input", "input show");
+    buttonsModeAddWord();
+    changeById("word-panel", "showInline");
+}
+
+//Modo jugando:
+function iniciarJuego(){
+    buttonsModePlaying();
+    changeById("draw", "mostrar");
+    changeById("keyboard-control", "btn-base btn2 mostrar");
+    changeById("word-panel", "showInline");    
+}
+
+function btnNuevoJuego(){
+    keysPanelReset(keysPanel);
+    wordPanelUnset();
+    btnIniciarJuego();
+    keyboardReset();
+    contador = 0;
+}
+
 function btnDesistir(){
     jugando = false;
     for(contador;contador<=9;contador++){
@@ -53,26 +64,24 @@ function btnDesistir(){
     buttonsModeGameEnd();  
 }
 
-function btnCancelar(){
-    home();
-}
 function btnVolverAlInicio(){
     keysPanelReset(keysPanel);
     wordPanelUnset();
     home();
 }
 
-function btnAgregarNuevaPalabra(){
-    buttonsModeAddWord();
-    changeById("word-panel", "mostrarTeclado");
+//Modo agregar palabra:
+function btnGuardarYEmpezar(){
+    alert("Aun no implementado");
 }
 
-function btnNuevoJuego(){
-    keysPanelReset(keysPanel);
-    wordPanelUnset();
-    btnIniciarJuego();
-    keyboardReset();
-    contador = 0;
+function btnCancelar(){
+    home();
+}
+
+function keysPanelReset(object){
+    object.textContent = "";
+    object.className = "keys-panel key-wrong";
 }
 
 function verificarLetra(letra){

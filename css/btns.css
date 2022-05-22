@@ -60,7 +60,7 @@
     margin: 1px;
     font-size: 25px;
 }
-.presionada{
+.keyboardKeydown{
     opacity: 0.3;
 }
 #a, #b, #c{

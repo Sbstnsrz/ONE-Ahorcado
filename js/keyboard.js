@@ -25,24 +25,24 @@ function keyboardSet(location){
 }
 
 function keyboardReset(){
-    document.querySelectorAll(".presionada").forEach(
-        element => {element.classList.remove("presionada");}
+    document.querySelectorAll(".keyboardKeydown").forEach(
+        element => {element.classList.remove("keyboardKeydown");}
     );
 }
 function keyboardKeydown(key){
     var keys = document.querySelectorAll(".keys");
     keys.forEach(element => {
         if(element.innerHTML.includes(key)){
-            element.classList.add("presionada");
+            element.classList.add("keyboardKeydown");
         }
     }); 
 }
     
 function keyboardShow(){
     var estado = document.querySelector("#keyboard");
-    if(estado.className.includes("mostrarTeclado")){
-        changeById("keyboard", "noMostrar");
+    if(estado.className.includes("showInline")){
+        changeById("keyboard", "hidded");
     }else{
-        changeById("keyboard", "mostrarTeclado");
+        changeById("keyboard", "showInline");
     }
 }

@@ -2,7 +2,6 @@
     font-family: 'Inter';
     font-style: normal;
 }
-
 :root{
     background: #F3F5FC;
     --color1: #0A3871;
@@ -18,7 +17,7 @@ section{
     min-width: 375px;
     text-align:center;
 }
-.noMostrar{
+.hidded{
     display: none;
 }
 .mostrar{
@@ -27,7 +26,7 @@ section{
 .mostrarInicio{
     display: block;
 }
-.mostrarTeclado{
+.showInline{
     display: inline-block;
 }
 table{
@@ -35,15 +34,12 @@ table{
     border-spacing: 1px;
     display: inline;
 }
-.palabra{    
+.word-panel-key{    
     color: var(--color1);
     font-size: 48px;
     width: 80px;
     height: 50px;
     margin: 5px;
-}
-#palabra{
-    display: inline;
 }
 hr{
     width: 70%;
@@ -62,17 +58,17 @@ hr{
     letter-spacing: 1em;
     color: #495057;
 }
-.mensaje{
+.message{
     font-weight: bold;
     letter-spacing: normal;
 }
-.perdiste{
+.lose{
     color: red;  
 }
-.ganaste{
+.win{
     color: green;
 }
-.letrasFaltantes{
+.word-panel-missing-key{
     opacity: 0.3;
 }
 
@@ -90,4 +86,22 @@ hr{
 .copyright:hover{
     font-weight: bold;
     color: black;
+}
+
+.input{
+    
+    resize: none;
+    text-align: center;
+    height: 2em;
+    width: 12em;
+    max-width: 90%;
+    margin: 2em 0;
+    padding-top: 1em;
+    font-size: 2em;
+    border-radius: 15px;
+    border-color: var(--color2);
+    color: var(--color1);
+}
+.input::selection{
+
 }

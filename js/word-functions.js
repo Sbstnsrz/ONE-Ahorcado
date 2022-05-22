@@ -1,18 +1,18 @@
 //Muestra mensaje de ganaste.
 function winnerMsj(object){
     object.textContent = "Ganaste, felicidades!";
-    object.className = "keys-panel mensaje ganaste";
+    object.className = "keys-panel message win";
 }
 //Muestra mensaje al perder.
 function loserMsj(object, word){
     keysShowMissed(word);
-    object.className = "keys-panel mensaje perdiste";
+    object.className = "keys-panel message lose";
     object.textContent="Fin del juego!";
 }
 
 //Borra word-panel
 function wordPanelUnset(){
-    document.querySelectorAll(".palabra").forEach(element =>{element.remove();});
+    document.querySelectorAll(".word-panel-key").forEach(element =>{element.remove();});
     document.querySelectorAll(".dash").forEach(element =>{element.remove();});
 }
 
@@ -24,7 +24,7 @@ function wordPanelSet(word){
     for(i=0; i<word.length;i++){
         //campo de letra
         var td = document.createElement("td");
-        td.className= "palabra";
+        td.className= "word-panel-key";
         container.appendChild(td);
         //campo con guion
         var td = document.createElement("td");
@@ -47,14 +47,14 @@ function wordSelect(previousWord, array){
 //Toma la palabra en word-panel y la compara con la recibida.
 function wordCheck(word){
     var readWord = "";
-    document.querySelectorAll(".palabra").forEach(element => {
+    document.querySelectorAll(".word-panel-key").forEach(element => {
         readWord+=element.textContent;
     });
     if(readWord.includes(word)){return true;}else{return false;}
 }
 
 function keysShowCorrect(key, word){
-    var wordPanelKeys = document.querySelectorAll(".palabra");
+    var wordPanelKeys = document.querySelectorAll(".word-panel-key");
     var finded = false;
     for(i=0;i<word.length;i++){
         if(word[i].includes(key)){
@@ -66,10 +66,10 @@ function keysShowCorrect(key, word){
 }
 
 function keysShowMissed(word){
-    var wordPanelKeys = document.querySelectorAll(".palabra");
+    var wordPanelKeys = document.querySelectorAll(".word-panel-key");
     for(i=0;i<word.length;i++){
         if(!(wordPanelKeys[i].innerHTML.includes(word[i]))){
-            wordPanelKeys[i].classList.add("letrasFaltantes");
+            wordPanelKeys[i].classList.add("word-panel-missing-key");
             wordPanelKeys[i].innerHTML=word[i];
         }
     }
