@@ -46,7 +46,9 @@ function btnIniciarJuego(){
 
 function btnDesistir(){
     jugando = false;
-    contador=9;
+    for(contador;contador<=9;contador++){
+        drawNewPart(contador);
+    }
     loserMsj(keysPanel, secretWord);  
 }
 
@@ -111,7 +113,6 @@ window.addEventListener('keydown', function(event){
 home();
 
 keyboardSet(teclado);
-var tecladoTeclas = document.querySelectorAll(".teclas");
 
 
     

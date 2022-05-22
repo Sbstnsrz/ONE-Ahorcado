@@ -29,10 +29,10 @@ function keyboardReset(){
         element => {element.classList.remove("presionada");}
     );
 }
-function keyboardKeydown(letra){
-    var teclas = document.querySelectorAll(".keys");
-    teclas.forEach(element => {
-        if(element.innerHTML.includes(letra)){
+function keyboardKeydown(key){
+    var keys = document.querySelectorAll(".keys");
+    keys.forEach(element => {
+        if(element.innerHTML.includes(key)){
             element.classList.add("presionada");
         }
     }); 

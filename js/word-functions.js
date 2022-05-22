@@ -45,33 +45,33 @@ function wordSelect(previousWord, array){
     return wordSelected;
 }
 
-
-function wordCheck(valor){
-    var texto = "";
+//Toma la palabra en word-panel y la compara con la recibida.
+function wordCheck(word){
+    var readWord = "";
     document.querySelectorAll(".palabra").forEach(element => {
-        texto+=element.textContent;
+        readWord+=element.textContent;
     });
-    if(texto.includes(valor)){return true;}else{return false;}
+    if(readWord.includes(word)){return true;}else{return false;}
 }
 
-function keysShowCorrect(letra, palSec){
-    var letras = document.querySelectorAll(".palabra");
-    var encontrada = false;
-    for(i=0;i<palSec.length;i++){
-        if(palSec[i].includes(letra)){
-            letras[i].textContent=letra;
-            encontrada = true;
+function keysShowCorrect(key, word){
+    var wordPanelKeys = document.querySelectorAll(".palabra");
+    var finded = false;
+    for(i=0;i<word.length;i++){
+        if(word[i].includes(key)){
+            wordPanelKeys[i].textContent=key;
+            finded = true;
         }
     }
-    if(encontrada){return true;}else{return false;}
+    if(finded){return true;}else{return false;}
 }
 
-function keysShowMissed(palsec){
-    var str = document.querySelectorAll(".palabra");
-    for(i=0;i<palsec.length;i++){
-        if(!(str[i].innerHTML.includes(palsec[i]))){
-            str[i].classList.add("letrasFaltantes");
-            str[i].innerHTML=palsec[i];
+function keysShowMissed(word){
+    var wordPanelKeys = document.querySelectorAll(".palabra");
+    for(i=0;i<word.length;i++){
+        if(!(wordPanelKeys[i].innerHTML.includes(word[i]))){
+            wordPanelKeys[i].classList.add("letrasFaltantes");
+            wordPanelKeys[i].innerHTML=word[i];
         }
     }
 }
