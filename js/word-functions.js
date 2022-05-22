@@ -5,7 +5,6 @@ function winnerMsj(object){
 }
 //Muestra mensaje al perder.
 function loserMsj(object, word){
-    buttonsModeLoser();
     keysShowMissed(word);
     object.className = "keys-panel mensaje perdiste";
     object.textContent="Fin del juego!";

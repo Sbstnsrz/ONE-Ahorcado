@@ -65,6 +65,6 @@ function buttonsModeAddWord(){
     changeById("div-button-1","mostrar", "");
     changeById("div-button-2","mostrar", "");
 }
-function buttonsModeLoser(){
+function buttonsModeGameEnd(){
     changeById("button-2","btn-base btn2 volverAlInicio","Volver al inicio");
 }

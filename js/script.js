@@ -49,7 +49,8 @@ function btnDesistir(){
     for(contador;contador<=9;contador++){
         drawNewPart(contador);
     }
-    loserMsj(keysPanel, secretWord);  
+    loserMsj(keysPanel, secretWord);
+    buttonsModeGameEnd();  
 }
 
 function btnCancelar(){
@@ -87,6 +88,7 @@ function verificarLetra(letra){
             else{
                 if(wordCheck(secretWord)){
                     winnerMsj(keysPanel);
+                    buttonsModeGameEnd();
                     jugando = false;
                 }
             }
