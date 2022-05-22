@@ -72,7 +72,9 @@ function btnVolverAlInicio(){
 
 //Modo agregar palabra:
 function btnGuardarYEmpezar(){
-    alert("Aun no implementado");
+    alert("Aun no implementado\nSe inicia el juego sin guardar.");
+    changeById("input", "input hidded");
+    btnIniciarJuego();
 }
 
 function btnCancelar(){
