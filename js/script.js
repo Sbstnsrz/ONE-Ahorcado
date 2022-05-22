@@ -72,9 +72,17 @@ function btnVolverAlInicio(){
 
 //Modo agregar palabra:
 function btnGuardarYEmpezar(){
-    alert("Aun no implementado\nSe inicia el juego sin guardar.");
+    var newWord = document.getElementById("input").value;
+    console.log(newWord);
+    wordsList.push(newWord);
+    secretWord=newWord;
     changeById("input", "input hidded");
-    btnIniciarJuego();
+    wordPanelSet(secretWord);
+    iniciarJuego();
+    drawInit();
+    keyboardReset();
+    jugando = true;
+    contador = 0;
 }
 
 function btnCancelar(){
