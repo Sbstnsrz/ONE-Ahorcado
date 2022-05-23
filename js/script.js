@@ -27,10 +27,6 @@ function btnIniciarJuego(){
     secretWord = wordSelect(secretWord, wordsList);
     wordPanelSet(secretWord);
     iniciarJuego();
-    drawInit();
-    keyboardReset();
-    jugando = true;
-    contador = 0;
 }
 
 function btnAgregarNuevaPalabra(){
@@ -44,7 +40,11 @@ function iniciarJuego(){
     buttonsModePlaying();
     changeById("draw", "mostrar");
     changeById("keyboard-control", "btn-base btn2 mostrar");
-    changeById("word-panel", "showInline");    
+    changeById("word-panel", "showInline");
+    drawInit();
+    keyboardReset();
+    jugando = true;
+    contador = 0;   
 }
 
 function btnNuevoJuego(){
@@ -73,16 +73,30 @@ function btnVolverAlInicio(){
 //Modo agregar palabra:
 function btnGuardarYEmpezar(){
     var newWord = document.getElementById("input").value;
-    console.log(newWord);
-    wordsList.push(newWord);
-    secretWord=newWord;
-    changeById("input", "input hidded");
-    wordPanelSet(secretWord);
-    iniciarJuego();
-    drawInit();
-    keyboardReset();
-    jugando = true;
-    contador = 0;
+    if(newWord.length>=4 && newWord.length<=10){
+        if(wordVerify(newWord)){
+            wordsList.push(newWord);
+            secretWord=newWord;
+            changeById("input", "input hidded");
+            wordPanelSet(secretWord);
+            iniciarJuego();
+        }else{
+            alert("Palabra incorrecta");
+        }
+    }else{
+        alert("Palabra debe tener entre 4 y 10 caracteres")
+    }  
+}
+
+function wordVerify(word){
+    for(i=0;i<word.length;i++){
+        if(charCheck(word[i])){
+            continue;
+        }else{
+            return false;
+        }
+    }
+    return true;
 }
 
 function btnCancelar(){
@@ -96,7 +110,7 @@ function keysPanelReset(object){
 
 function verificarLetra(letra){
 
-    if((letra>="A"&&letra<="Z") || letra=="Ñ"){
+    if(charCheck(letra)){
         if(contador<9 && keysPanel.textContent.indexOf(letra)==-1){
             keyboardKeydown(letra);
             if(!keysShowCorrect(letra, secretWord)){
@@ -118,6 +132,15 @@ function verificarLetra(letra){
     }
     
 }
+
+function charCheck(char){
+    if((char>="A"&&char<="Z") || char=="Ñ"){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 
 //Captura id de elemento clickeado
 document.addEventListener("click",function(event){

@@ -10,6 +10,7 @@ function loserMsj(object, word){
     object.textContent="Fin del juego!";
 }
 
+
 //Borra word-panel
 function wordPanelUnset(){
     document.querySelectorAll(".word-panel-key").forEach(element =>{element.remove();});
