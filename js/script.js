@@ -43,12 +43,13 @@ function iniciarJuego(){
     changeById("word-panel", "showInline");
     drawInit();
     keyboardReset();
+    showMessage("reset");
     jugando = true;
     contador = 0;   
 }
 
 function btnNuevoJuego(){
-    keysPanelReset(keysPanel);
+    showMessage("reset");
     wordPanelUnset();
     btnIniciarJuego();
     keyboardReset();
@@ -60,12 +61,13 @@ function btnDesistir(){
     for(contador;contador<=9;contador++){
         drawNewPart(contador);
     }
-    loserMsj(keysPanel, secretWord);
+    showMessage("lose");
+    keysShowMissed(secretWord);
     buttonsModeGameEnd();  
 }
 
 function btnVolverAlInicio(){
-    keysPanelReset(keysPanel);
+    showMessage("reset");
     wordPanelUnset();
     home();
 }
@@ -81,10 +83,10 @@ function btnGuardarYEmpezar(){
             wordPanelSet(secretWord);
             iniciarJuego();
         }else{
-            alert("Palabra incorrecta");
+            showMessage("msj-wrong");
         }
     }else{
-        alert("Palabra debe tener entre 4 y 10 caracteres")
+        showMessage("msj-length");
     }  
 }
 
@@ -103,11 +105,6 @@ function btnCancelar(){
     home();
 }
 
-function keysPanelReset(object){
-    object.textContent = "";
-    object.className = "keys-panel key-wrong";
-}
-
 function verificarLetra(letra){
 
     if(charCheck(letra)){
@@ -120,7 +117,7 @@ function verificarLetra(letra){
             }
             else{
                 if(wordCheck(secretWord)){
-                    winnerMsj(keysPanel);
+                    showMessage("win");
                     buttonsModeGameEnd();
                     jugando = false;
                 }

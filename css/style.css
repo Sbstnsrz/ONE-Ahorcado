@@ -61,6 +61,7 @@ hr{
 .message{
     font-weight: bold;
     letter-spacing: normal;
+    color: var(--color1);
 }
 .lose{
     color: red;  
