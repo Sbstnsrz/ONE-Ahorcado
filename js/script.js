@@ -180,8 +180,8 @@ function pointsCounter(type){
     if(type=="reset"){
         lossed=0;
         winned=0;
-        document.getElementById("lossed").textContent=lossed;
-        document.getElementById("winned").textContent=winned;
+        document.getElementById("lossed").textContent="";
+        document.getElementById("winned").textContent="";
 
     }
 }
