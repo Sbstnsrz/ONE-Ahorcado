@@ -7,16 +7,6 @@ var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
                     "nuevoJuego","desistir","volverAlInicio"];
 
 var wordsList = [];
-
-(async () =>{
-    //Palabras importadas desde JSON en http
-    for(i=0;i<10;i++){
-        //wordsList.push(importWords());
-        var tempWord = await importWords();
-        wordsList.push(tempWord.toUpperCase());
-    }
-    console.log(wordsList);
-})();
     //Captura id de elemento clickeado
     document.addEventListener("click",function(event){
         clickParse(event.target, buttonsList);
@@ -46,10 +36,18 @@ function home(){
 
 }
 
-function btnIniciarJuego(){
-    secretWord = wordSelect(secretWord, wordsList);
-    wordPanelSet(secretWord);
+async function btnIniciarJuego(){
     iniciarJuego();
+    keysPanelMessage("search");
+    var tempWord = "";
+    while(!(wordVerify(tempWord.toUpperCase()) && wordVerifyLength(tempWord))){
+        var tempWord = await importWords();
+        console.log(tempWord);
+    }
+    keysPanelMessage("reset");
+    
+    secretWord = tempWord.toUpperCase(); 
+    wordPanelSet(secretWord);
 }
 
 function btnAgregarNuevaPalabra(){
@@ -97,7 +95,7 @@ function btnGuardarYEmpezar(){
     var input = document.getElementById("input");
     var newWord = input.value;
     //Palbra entre 4 y 8 caracteres:
-    if(newWord.length>=4 && newWord.length<=8){
+    if(wordVerifyLength(newWord)){
         if(wordVerify(newWord)){
             wordsList.push(newWord);
             secretWord=newWord;
@@ -114,6 +112,15 @@ function btnGuardarYEmpezar(){
     }
     input.value = "";
 }
+
+function wordVerifyLength(word){
+    if(word.length>=4 && word.length<=8){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 //Verifica que la palabra este compuesta de A<>Z
 function wordVerify(word){
     for(i=0;i<word.length;i++){

@@ -34,6 +34,12 @@ table{
     border-spacing: 1px;
     display: inline;
 }
+#word-container{
+    height: 60px;
+}
+#dash{
+    height: 15px;
+}
 .word-panel-key{    
     color: var(--color1);
     font-size: 48px;
@@ -90,7 +96,6 @@ hr{
 }
 
 .input{
-    
     resize: none;
     text-align: center;
     height: 2em;

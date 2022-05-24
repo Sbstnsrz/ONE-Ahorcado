@@ -22,6 +22,10 @@ function keysPanelMessage(type){
         keysPanel.className = "keys-panel key-wrong";
         keysPanel.textContent = "";
     }
+    if(type=="search"){
+        keysPanel.className = "keys-panel message";
+        keysPanel.textContent = "Eligiendo palabra...";
+    }
 }
 
 //Borra word-panel
