@@ -10,7 +10,7 @@ function showMessage(type){
         keysPanel.textContent="Fin del juego!";
     }else if(type=="msj-length"){
         keysPanel.className = "keys-panel message";
-        keysPanel.textContent = "Palabra debe tener entre 4 y 10 caracteres";
+        keysPanel.textContent = "Palabra debe tener entre 4 y 8 caracteres";
     }else if(type=="msj-wrong"){
         keysPanel.className = "keys-panel message";
         keysPanel.textContent = "La palabra deber ser en mayusculas";

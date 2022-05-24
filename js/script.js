@@ -75,7 +75,7 @@ function btnVolverAlInicio(){
 //Modo agregar palabra:
 function btnGuardarYEmpezar(){
     var newWord = document.getElementById("input").value;
-    if(newWord.length>=4 && newWord.length<=10){
+    if(newWord.length>=4 && newWord.length<=8){
         if(wordVerify(newWord)){
             wordsList.push(newWord);
             secretWord=newWord;
