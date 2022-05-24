@@ -1,6 +1,8 @@
 var contador = 0;
 var jugando = false;
 var secretWord = "";
+var winned=0;
+var lossed=0;
 
 var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
                     "guardarYEmpezar","cancelar",
@@ -81,11 +83,13 @@ function btnDesistir(){
         drawNewPart(contador);
     }
     keysPanelMessage("lose");
+    pointsCounter("lose")
     keysShowMissed(secretWord);
 }
 
 function btnVolverAlInicio(){
     keysPanelMessage("reset");
+    pointsCounter("reset");
     wordPanelUnset();
     home();
 }
@@ -151,6 +155,7 @@ function verificarLetra(letra){
             else{
                 if(wordCheck(secretWord)){
                     keysPanelMessage("win");
+                    pointsCounter("win");
                     buttonsModeGameEnd();
                     jugando = false;
                 }
@@ -161,6 +166,24 @@ function verificarLetra(letra){
         }
     }
     
+}
+
+function pointsCounter(type){
+    if(type=="lose"){
+        lossed++;
+        document.getElementById("lossed").textContent=lossed;
+    }
+    if(type=="win"){
+        winned++;
+        document.getElementById("winned").textContent=winned;
+    }
+    if(type=="reset"){
+        lossed=0;
+        winned=0;
+        document.getElementById("lossed").textContent=lossed;
+        document.getElementById("winned").textContent=winned;
+
+    }
 }
 
 function charAtoZCheck(char){
