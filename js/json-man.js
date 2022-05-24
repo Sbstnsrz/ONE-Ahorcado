@@ -1,3 +1,32 @@
+function makeRequest(method, url) {
+    return new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            }
+        };
+        xhr.onerror = function () {
+            reject({
+                status: this.status,
+                statusText: xhr.statusText
+            });
+        };
+        xhr.send();
+    });
+}
+
+async function importWords(){
+    var respuesta = await makeRequest("GET", "https://palabras-aleatorias-public-api.herokuapp.com/random");
+    return JSON.parse(respuesta)['body']['Word'];  
+}
+/*
 function importWords(){
     var xhr = new XMLHttpRequest;
     var recibido = [];
@@ -18,3 +47,4 @@ function importWords(){
     xhr.send();
     return recibido;
 }
+*/

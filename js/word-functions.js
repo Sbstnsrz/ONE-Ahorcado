@@ -1,26 +1,28 @@
 
-function showMessage(type){
+function keysPanelMessage(type){
     var keysPanel = document.querySelector(".keys-panel");
 
     if(type=="win"){
-        keysPanel.textContent = "Ganaste, felicidades!";
         keysPanel.className = "keys-panel message win";
-    }else if(type=="lose"){
+        keysPanel.textContent = "Ganaste, felicidades!";
+    }
+    if(type=="lose"){
         keysPanel.className = "keys-panel message lose";
         keysPanel.textContent="Fin del juego!";
-    }else if(type=="msj-length"){
+    }
+    if(type=="msj-length"){
         keysPanel.className = "keys-panel message";
-        keysPanel.textContent = "Palabra debe tener entre 4 y 10 caracteres";
-    }else if(type=="msj-wrong"){
+        keysPanel.textContent = "La palabra debe tener entre 4 y 8 caracteres";
+    } 
+    if(type=="msj-wrong"){
         keysPanel.className = "keys-panel message";
         keysPanel.textContent = "La palabra deber ser en mayusculas";
-    }else if(type=="reset"){
+    } 
+    if(type=="reset"){
         keysPanel.className = "keys-panel key-wrong";
         keysPanel.textContent = "";
     }
 }
-
-
 
 //Borra word-panel
 function wordPanelUnset(){

@@ -1,16 +1,39 @@
-var keysPanel = document.querySelector(".keys-panel");
-var teclado = document.querySelector("#keyboard");
 var contador = 0;
 var jugando = false;
 var secretWord = "";
 
 var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
-                "guardarYEmpezar","cancelar",
-                "nuevoJuego","desistir","volverAlInicio"];
+                    "guardarYEmpezar","cancelar",
+                    "nuevoJuego","desistir","volverAlInicio"];
+
+var wordsList = [];
+
+(async () =>{
+    //Palabras importadas desde JSON en http
+    for(i=0;i<10;i++){
+        //wordsList.push(importWords());
+        var tempWord = await importWords();
+        wordsList.push(tempWord.toUpperCase());
+    }
+    console.log(wordsList);
+})();
+    //Captura id de elemento clickeado
+    document.addEventListener("click",function(event){
+        clickParse(event.target, buttonsList);
+    });
+
+    //Captura tecla presionada
+    window.addEventListener('keydown', function(event){
+        if(jugando){
+            verificarLetra(event.key.toUpperCase());
+        }
+    });
+
+    home();
+
+    keyboardSet(document.querySelector("#keyboard"));
 
 
-//Palabras importadas desde JSON en http
-var wordsList = importWords();
 
 //Modo inicio:
 function home(){
@@ -42,40 +65,39 @@ function iniciarJuego(){
     changeById("keyboard-control", "btn-base btn2 mostrar");
     changeById("word-panel", "showInline");
     drawInit();
-    keyboardReset();
-    showMessage("reset");
     jugando = true;
     contador = 0;   
 }
 
 function btnNuevoJuego(){
-    showMessage("reset");
+    keysPanelMessage("reset");
+    keyboardReset();
     wordPanelUnset();
     btnIniciarJuego();
-    keyboardReset();
-    contador = 0;
 }
 
 function btnDesistir(){
+    buttonsModeGameEnd();  
     jugando = false;
     for(contador;contador<=9;contador++){
         drawNewPart(contador);
     }
-    showMessage("lose");
+    keysPanelMessage("lose");
     keysShowMissed(secretWord);
-    buttonsModeGameEnd();  
 }
 
 function btnVolverAlInicio(){
-    showMessage("reset");
+    keysPanelMessage("reset");
     wordPanelUnset();
     home();
 }
 
 //Modo agregar palabra:
 function btnGuardarYEmpezar(){
-    var newWord = document.getElementById("input").value;
-    if(newWord.length>=4 && newWord.length<=10){
+    var input = document.getElementById("input");
+    var newWord = input.value;
+    //Palbra entre 4 y 8 caracteres:
+    if(newWord.length>=4 && newWord.length<=8){
         if(wordVerify(newWord)){
             wordsList.push(newWord);
             secretWord=newWord;
@@ -83,16 +105,19 @@ function btnGuardarYEmpezar(){
             wordPanelSet(secretWord);
             iniciarJuego();
         }else{
-            showMessage("msj-wrong");
+            keysPanelMessage("msj-wrong");
+            input.focus();
         }
     }else{
-        showMessage("msj-length");
-    }  
+        keysPanelMessage("msj-length");
+        input.focus();
+    }
+    input.value = "";
 }
-
+//Verifica que la palabra este compuesta de A<>Z
 function wordVerify(word){
     for(i=0;i<word.length;i++){
-        if(charCheck(word[i])){
+        if(charAtoZCheck(word[i])){
             continue;
         }else{
             return false;
@@ -106,8 +131,9 @@ function btnCancelar(){
 }
 
 function verificarLetra(letra){
+    var keysPanel = document.querySelector(".keys-panel");
 
-    if(charCheck(letra)){
+    if(charAtoZCheck(letra)){
         if(contador<9 && keysPanel.textContent.indexOf(letra)==-1){
             keyboardKeydown(letra);
             if(!keysShowCorrect(letra, secretWord)){
@@ -117,7 +143,7 @@ function verificarLetra(letra){
             }
             else{
                 if(wordCheck(secretWord)){
-                    showMessage("win");
+                    keysPanelMessage("win");
                     buttonsModeGameEnd();
                     jugando = false;
                 }
@@ -130,7 +156,7 @@ function verificarLetra(letra){
     
 }
 
-function charCheck(char){
+function charAtoZCheck(char){
     if((char>="A"&&char<="Z") || char=="Ñ"){
         return true;
     }else{
@@ -139,21 +165,6 @@ function charCheck(char){
 }
 
 
-//Captura id de elemento clickeado
-document.addEventListener("click",function(event){
-    clickParse(event.target, buttonsList);
-});
-
-//Captura tecla presionada
-window.addEventListener('keydown', function(event){
-    if(jugando){
-        verificarLetra(event.key.toUpperCase());
-    }
-});
-
-home();
-
-keyboardSet(teclado);
 
 
     
