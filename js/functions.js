@@ -108,5 +108,8 @@ function charAtoZCheck(char){
         return true;
     }else{
         return false;
+  
     }
 }
+
+

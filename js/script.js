@@ -4,9 +4,23 @@ var secretWord = "";
 var winned=0;
 var lossed=0;
 
-var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
-                    "guardarYEmpezar","cancelar",
-                    "nuevoJuego","desistir","volverAlInicio"];
+
+(function(){
+    home();
+    //Captura id de elemento clickeado
+    document.addEventListener("click",function(event){
+        clickParse(event.target);
+    });
+
+    //Captura tecla presionada
+    window.addEventListener('keydown', function(event){
+        if(jugando){
+            keyVerify(event.key.toUpperCase());
+        }
+    });
+    //Inicia el teclado
+    keyboardSet(document.querySelector("#keyboard"));
+})();
 
 //Modo inicio:
     //Configuraciones iniciales del modo.
@@ -26,7 +40,6 @@ async function btnIniciarJuego(){
     var tempWord = "";
     while(!(wordVerify(tempWord.toUpperCase()) && wordVerifyLength(tempWord))){
         var tempWord = await importWords();
-        console.log(tempWord);
     }
     keysPanelMessage("reset");
     
@@ -107,7 +120,7 @@ function btnCancelar(){
 }
 
 //Verifica que el caracter ingresado sea de la palabra secreta.
-function verificarLetra(letra){
+function keyVerify(letra){
     var keysPanel = document.querySelector(".keys-panel");
 
     if(charAtoZCheck(letra)){
@@ -152,21 +165,6 @@ function pointsCounter(type){
 
     }
 }
-
-home();
-//Captura id de elemento clickeado
-document.addEventListener("click",function(event){
-    clickParse(event.target, buttonsList);
-});
-
-//Captura tecla presionada
-window.addEventListener('keydown', function(event){
-    if(jugando){
-        verificarLetra(event.key.toUpperCase());
-    }
-});
-//Inicia el teclado
-keyboardSet(document.querySelector("#keyboard"));
 
 
 

@@ -1,0 +1,47 @@
+functions index:
+    script.js:
+        home()
+        bntIniciarJuego()
+        btnAgregarNuevaPalabra()
+        iniciarJuego()
+        btnNuevoJuego()
+        btnDesistir()
+        btnVolverAlInicio()
+        btnGuardarYEmpezar()
+        btnCancelar()
+        verificarLetra(letra)
+        pointsCounter(type)
+
+    word-functions.js:
+        keysPanelMessage(type)
+        wordPanelSet(word)
+        wordPanelUnset()
+        wordCheck(word)
+        keysShowCorrect(key, word)
+        wordVerify(word)
+        wordVerifyLength(word)
+        keysShowMissed(word)
+        charAtoZCheck(char)
+
+    json-man.js:
+        importWords()
+
+    canvas.js:
+        drawInit()
+        drawNewPart(cont)
+
+    buttons.js:
+        indexFind(object, wordList)
+        classFind(object, word)
+        clickParse(object, list)
+        changeById(id, classes, content)
+        buttonsModeHome()
+        buttonsModePlaying()
+        buttonsModeAddWord()
+        buttonsModeGameEnd()
+
+    keyboard.js:
+        keyboardSet(location)
+        keyboardReset()
+        keyboardKeydown(key)
+        keyboardShow()

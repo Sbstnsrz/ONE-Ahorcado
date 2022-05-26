@@ -7,6 +7,9 @@
     --color1: #0A3871;
     --color2: #D8DFE8;
 }
+header{
+    width: 100%;
+}
 .logo{
     margin-left: 40px;
     margin-top: 40px;
