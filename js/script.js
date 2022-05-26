@@ -8,26 +8,8 @@ var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
                     "guardarYEmpezar","cancelar",
                     "nuevoJuego","desistir","volverAlInicio"];
 
-var wordsList = [];
-    //Captura id de elemento clickeado
-    document.addEventListener("click",function(event){
-        clickParse(event.target, buttonsList);
-    });
-
-    //Captura tecla presionada
-    window.addEventListener('keydown', function(event){
-        if(jugando){
-            verificarLetra(event.key.toUpperCase());
-        }
-    });
-
-    home();
-
-    keyboardSet(document.querySelector("#keyboard"));
-
-
-
 //Modo inicio:
+    //Configuraciones iniciales del modo.
 function home(){
     buttonsModeHome();      
     changeById("draw", "hidded");
@@ -37,7 +19,7 @@ function home(){
     changeById("keyboard", "hidded");
 
 }
-
+    //Funcion de Boton "Iniciar juego".
 async function btnIniciarJuego(){
     iniciarJuego();
     keysPanelMessage("search");
@@ -52,13 +34,15 @@ async function btnIniciarJuego(){
     wordPanelSet(secretWord);
 }
 
+    //Funcion de boton "Agregar nueva palabra".
 function btnAgregarNuevaPalabra(){
-    changeById("input", "input show");
     buttonsModeAddWord();
+    changeById("input", "input show");
     changeById("word-panel", "showInline");
 }
 
 //Modo jugando:
+    //Configuraciones iniciales del modo.
 function iniciarJuego(){
     buttonsModePlaying();
     changeById("draw", "mostrar");
@@ -68,14 +52,14 @@ function iniciarJuego(){
     jugando = true;
     contador = 0;   
 }
-
+    //Funcion de boton "Nuevo juego".
 function btnNuevoJuego(){
     keysPanelMessage("reset");
     keyboardReset();
     wordPanelUnset();
     btnIniciarJuego();
 }
-
+    //Funcion de boton "Desistir".
 function btnDesistir(){
     buttonsModeGameEnd();  
     jugando = false;
@@ -86,7 +70,7 @@ function btnDesistir(){
     pointsCounter("lose")
     keysShowMissed(secretWord);
 }
-
+    //Funcion de boton "Volver al inicio".
 function btnVolverAlInicio(){
     keysPanelMessage("reset");
     pointsCounter("reset");
@@ -95,13 +79,13 @@ function btnVolverAlInicio(){
 }
 
 //Modo agregar palabra:
+    //Funcion de boton "Guardar y comenzar".
 function btnGuardarYEmpezar(){
     var input = document.getElementById("input");
     var newWord = input.value;
     //Palbra entre 4 y 8 caracteres:
     if(wordVerifyLength(newWord)){
         if(wordVerify(newWord)){
-            wordsList.push(newWord);
             secretWord=newWord;
             changeById("input", "input hidded");
             wordPanelSet(secretWord);
@@ -117,34 +101,17 @@ function btnGuardarYEmpezar(){
     input.value = "";
 }
 
-function wordVerifyLength(word){
-    if(word.length>=4 && word.length<=8){
-        return true;
-    }else{
-        return false;
-    }
-}
-
-//Verifica que la palabra este compuesta de A<>Z
-function wordVerify(word){
-    for(i=0;i<word.length;i++){
-        if(charAtoZCheck(word[i])){
-            continue;
-        }else{
-            return false;
-        }
-    }
-    return true;
-}
-
+    //Funcion de boton "Cancelar".
 function btnCancelar(){
     home();
 }
 
+//Verifica que el caracter ingresado sea de la palabra secreta.
 function verificarLetra(letra){
     var keysPanel = document.querySelector(".keys-panel");
 
     if(charAtoZCheck(letra)){
+                            //Busca la nueva letra entre las descubiertas.
         if(contador<9 && keysPanel.textContent.indexOf(letra)==-1){
             keyboardKeydown(letra);
             if(!keysShowCorrect(letra, secretWord)){
@@ -186,13 +153,20 @@ function pointsCounter(type){
     }
 }
 
-function charAtoZCheck(char){
-    if((char>="A"&&char<="Z") || char=="Ñ"){
-        return true;
-    }else{
-        return false;
+home();
+//Captura id de elemento clickeado
+document.addEventListener("click",function(event){
+    clickParse(event.target, buttonsList);
+});
+
+//Captura tecla presionada
+window.addEventListener('keydown', function(event){
+    if(jugando){
+        verificarLetra(event.key.toUpperCase());
     }
-}
+});
+//Inicia el teclado
+keyboardSet(document.querySelector("#keyboard"));
 
 
 

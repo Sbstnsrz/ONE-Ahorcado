@@ -3,7 +3,7 @@
     font-style: normal;
 }
 :root{
-    background: #F3F5FC;
+    background: #E5E5E5;
     --color1: #0A3871;
     --color2: #D8DFE8;
 }
@@ -106,5 +106,9 @@ hr{
     font-size: 2em;
     border-radius: 15px;
     border-color: var(--color2);
+    color: var(--color1);
+    background-color: #E5E5E5;
+}
+.input::placeholder{
     color: var(--color1);
 }

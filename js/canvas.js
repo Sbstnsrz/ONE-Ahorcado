@@ -1,14 +1,15 @@
 var pantalla = document.getElementById("draw");
 var draw = pantalla.getContext("2d");
+var color = getComputedStyle(document.querySelector(":root")).getPropertyValue("--color1");
 
 function drawInit(){
         draw.clearRect(0, 0, pantalla.width, pantalla.height);
 
         draw.beginPath();
-        draw.fillStyle= "#0A3871";
-        draw.lineCap= "round";
-        draw.lineWidth=5;
-        draw.strokeStyle="#0A3871";
+        draw.fillStyle = color;
+        draw.lineCap = "round";
+        draw.lineWidth = 5;
+        draw.strokeStyle = color;
         
         //base
         draw.fillRect(0,355,294,360);
