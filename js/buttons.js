@@ -1,7 +1,7 @@
 
 function indexFind(object, wordList){
     for(i=0;i<wordList.length;i++){
-        if(classFind(object, buttonsList[i])){
+        if(classFind(object, wordList[i])){
             return i;
         }
     }
@@ -13,9 +13,13 @@ function classFind(object, word){
     }else{return false;}
 }
 
-function clickParse(object, list){
+function clickParse(object){
 
-    switch(indexFind(object, list)){
+    var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
+                "guardarYEmpezar","cancelar",
+                "nuevoJuego","desistir","volverAlInicio"];
+
+    switch(indexFind(object, buttonsList)){
         case 0: {btnIniciarJuego();break;}
         case 1: {btnAgregarNuevaPalabra();break;}
         case 2: {btnGuardarYEmpezar();break;}

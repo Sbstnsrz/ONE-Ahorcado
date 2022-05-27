@@ -4,15 +4,12 @@ var contador = 0;
 var jugando = false;
 var secretWord = "";
 
-var buttonsList = ["iniciarJuego","agregarNuevaPalabra",
-                "guardarYEmpezar","cancelar",
-                "nuevoJuego","desistir","volverAlInicio"];
-
 
 //Palabras importadas desde JSON en http
 var wordsList = importWords();
 
 //Modo inicio:
+
 function home(){
     buttonsModeHome();      
     changeById("draw", "hidded");
@@ -36,6 +33,7 @@ function btnAgregarNuevaPalabra(){
 }
 
 //Modo jugando:
+
 function iniciarJuego(){
     buttonsModePlaying();
     changeById("draw", "mostrar");
@@ -78,7 +76,7 @@ function btnGuardarYEmpezar(){
     if(newWord.length>=4 && newWord.length<=8){
         if(wordVerify(newWord)){
             wordsList.push(newWord);
-            secretWord=newWord;
+            secretWord = wordSelect(secretWord, wordsList);
             changeById("input", "input hidded");
             wordPanelSet(secretWord);
             iniciarJuego();
@@ -138,22 +136,25 @@ function charCheck(char){
     }
 }
 
+//Init
 
-//Captura id de elemento clickeado
-document.addEventListener("click",function(event){
-    clickParse(event.target, buttonsList);
-});
+(function(){
 
-//Captura tecla presionada
-window.addEventListener('keydown', function(event){
-    if(jugando){
-        verificarLetra(event.key.toUpperCase());
-    }
-});
+    home();
 
-home();
+    keyboardSet(teclado);
 
-keyboardSet(teclado);
+    //Captura id de elemento clickeado
+    document.addEventListener("click",function(event){
+        clickParse(event.target);
+    });
 
+    //Captura tecla presionada
+    window.addEventListener('keydown', function(event){
+        if(jugando){
+            verificarLetra(event.key.toUpperCase());
+        }
+    });
 
-    
+})();
+
